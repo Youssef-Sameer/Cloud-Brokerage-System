@@ -1,0 +1,42 @@
+body {
+    background: linear-gradient(to bottom right, #1a1a2e, #16213e, #0f2f61, #004477, #0077b6, #00b4d8, #48cae4, #ade8f4);
+    color: white;
+  }
+  
+  h1, h2 {
+    color: #000000;
+  }
+  
+  form {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  select {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  input[type=submit] {
+    background-color: #4a90e2;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #3677c9;
+  }
+  
