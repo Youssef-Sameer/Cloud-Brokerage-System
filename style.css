@@ -49,10 +49,10 @@ body {
 }
 
 h1 {
-  text-align: center;
-  margin-bottom: 50px;
-  color: #ade8f4;
-  font-size: 2.5rem;
+ text-align: start;
+ margin-bottom: 50px;
+ color: #ade8f4;
+ font-size: 2.5rem;
 }
 
 form {
