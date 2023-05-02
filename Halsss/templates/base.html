@@ -15,6 +15,10 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <!-- Vendor CSS Files -->
   <link href="static/vendor/animate.css/animate.min.css" rel="stylesheet">
@@ -52,9 +56,8 @@
         <ul>
           <li><a href="{{ url_for('my_blueprint.index') }}" class="active">Home</a></li>
 
-          <li class="dropdown"><a href="#"><span>About</span> <i class="bi bi-chevron-down"></i></a>
+          
             <ul>
-              <li><a href="{{ url_for('my_blueprint.about') }}">About Us</a></li>
               
                 <ul>
                   
@@ -62,32 +65,49 @@
               </li>
             </ul>
           </li>
-
+          {% if session.user_type == "Admin" %}
+          <li><a href="{{ url_for('my_blueprint.adminpanel') }}" class="active">Users</a></li>
+          <li><a href="{{ url_for('my_blueprint.viewcsp') }}"> CSPS</a></li>
+          <li><a href="{{ url_for('my_blueprint.viewadmins') }}">Admins</a></li>
+          
+          {% endif %}
+          {% if session.user_type == "User" %}
+          <li><a href="{{ url_for('my_blueprint.about') }}">About Us</a></li>
+          <li><a href="{{ url_for('my_blueprint.contact') }}">Contact</a></li>
+          <li><a href="{{ url_for('my_blueprint.myprofile') }}">Profile</a></li>
+          
+          {% endif %}
           {% if session.user_id %}
           <li><a href="{{ url_for('my_blueprint.logout') }}">Logout</a></li>
-          <li><a href="{{ url_for('my_blueprint.myprofile') }}">Profile</a></li>
+          
           {% else %}
           <li><a href="{{ url_for('my_blueprint.login') }}">Login</a></li>
-          {% endif %}
+          <li><a href="{{ url_for('my_blueprint.about') }}">About Us</a></li>
+          {% endif %}          
+
+
+          
+          
           
 
           
 
           
           
-          <li><a href="{{ url_for('my_blueprint.contact') }}">Contact</a></li>
+          
 
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-
+      {% if session.user_type == "User" %}
       <div class="header-social-links d-flex">
         <a href="#" class="twitter"><i class="bu bi-twitter"></i></a>
         <a href="#" class="facebook"><i class="bu bi-facebook"></i></a>
         <a href="#" class="instagram"><i class="bu bi-instagram"></i></a>
         <a href="#" class="linkedin"><i class="bu bi-linkedin"></i></i></a>
       </div>
-
+      {% else %}
+      {% endif %}
     </div>
   </header><!-- End Header -->
 
@@ -107,10 +127,10 @@
           <div class="col-lg-3 col-md-6 footer-contact">
             <h3>Company</h3>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
+              Misr International University <br>
+              Cairo, CA<br>
+              Egypt <br><br>
+              <strong>Phone:</strong> +20 100 000 0000<br>
               <strong>Email:</strong> info@example.com<br>
             </p>
           </div>
@@ -118,22 +138,13 @@
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="about.html">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="login.html">Login</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ url_for('my_blueprint.index') }}">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ url_for('my_blueprint.about') }}">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ url_for('my_blueprint.login') }}">Login</a></li>
             </ul>
           </div>
 
           
-            
-
-          <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Join Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
-          </div>
 
         </div>
       </div>

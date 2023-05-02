@@ -1,0 +1,44 @@
+{% extends "base.html" %} {% block title%}Login{% endblock %} {% block content
+  %}
+      <br>
+      <br>
+
+<!--Main Navigation-->
+<header>
+<br>
+<br>
+<!--Mask-->
+  <div class="header">
+    <h2><font size=6>ADD CSP</font></h2>
+  </div>
+  <form method="post" action="login.html">
+    <!--display vladilatioin errors here-->
+  <div class="input-group">
+    <label><font color="white">csp name</font></label>
+    <input type="text" placeholder="name" id="name" name="name" required="">
+    </div>
+
+    
+ 
+  <div class="input-group">
+        <label><font color="white">website</font></label>
+    <input type="text" placeholder="web"  id="web" name="web"  required="">
+    </div>
+    <div class="input-group">
+        <label><font color="white">Services</font></label>
+    <input type="text" placeholder="services"  id="services" name="services"  required="">
+    </div>
+
+  <div class="input-group">
+    <button type="sumbit" name="login" class="btn" >add csp</button>
+    
+  </div>
+
+
+		
+		
+
+ </form>
+<!--/.Mask-->
+</header>
+{% endblock %}

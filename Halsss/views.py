@@ -51,6 +51,7 @@ def login():
             session['user_id'] = user[0]
             session['user_name'] = user[1]
             session['user_email'] = user[2]
+            session['user_type'] = user[4]
             return render_template('index.html')
         else:
             error = 'Invalid email or password'
@@ -62,6 +63,7 @@ def login():
 def signup():
     if request.method == 'POST':
         # Get form data
+        type = "User"
         name = request.form['name']
         email = request.form['email']
         password = request.form['password']
@@ -80,13 +82,14 @@ def signup():
             return render_template('signup1.html', error=error)
 
         # Insert new user into database
-        cursor.execute("INSERT INTO users (user_name, user_email, user_password) VALUES (%s, %s, %s)", (name, email, password))
+        cursor.execute("INSERT INTO users (user_name, user_email, user_password,user_type) VALUES (%s, %s, %s,%s)", (name, email, password,type))
         mydb.commit()
 
         # Log in user and redirect to index page
         session['user_id'] = cursor.lastrowid
         session['user_name'] = name
         session['user_email'] = email
+        session['user_type'] = type
         return render_template('index.html')
     else:
         return render_template('signup1.html')
@@ -103,5 +106,23 @@ def myprofile():
 @my_blueprint.route('/logout')
 def logout():
     session.clear()
-    return render_template('login1.html')
+    return render_template('index.html')
 
+@my_blueprint.route('/adminpanel')
+def adminpanel():
+    return render_template('admin_panel_users.html')
+
+@my_blueprint.route('/addadmin')
+def addadmin():
+    return render_template('add_admin.html')
+
+@my_blueprint.route('/addcsp')
+def addcsp():
+    return render_template('add_csp.html')
+
+@my_blueprint.route('/viewcsp')
+def viewcsp():
+    return render_template('admin_panel_view_csp.html')
+@my_blueprint.route('/viewadmins')
+def viewadmins():
+    return render_template('admins.html')
