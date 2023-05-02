@@ -110,7 +110,9 @@ def logout():
 
 @my_blueprint.route('/adminpanel')
 def adminpanel():
-    return render_template('admin_panel_users.html')
+    cursor.execute("SELECT * FROM users")
+    users = cursor.fetchall()
+    return render_template('admin_panel_users.html',users=users)
 
 @my_blueprint.route('/addadmin')
 def addadmin():
@@ -122,7 +124,11 @@ def addcsp():
 
 @my_blueprint.route('/viewcsp')
 def viewcsp():
-    return render_template('admin_panel_view_csp.html')
+    cursor.execute("SELECT * FROM cloud_providers")
+    csps=cursor.fetchall()
+    return render_template('admin_panel_view_csp.html',csps=csps)
 @my_blueprint.route('/viewadmins')
 def viewadmins():
-    return render_template('admins.html')
+    cursor.execute("SELECT * FROM users WHERE user_type='Admin'")
+    admins=cursor.fetchall()
+    return render_template('admins.html',admins=admins)

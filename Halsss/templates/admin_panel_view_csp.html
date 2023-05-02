@@ -26,9 +26,8 @@
             <table class="table table-striped table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th>#</th>
+                        <th>ID</th>
                         <th>Name <i class="fa fa-sort"></i></th>
-                        <th>Servies <i class="fa fa-sort"></i></th>
                         <th>website <i class="fa fa-sort"></i></th>
                         <th>Delete <i class="fa fa-sort"></i></th>
 
@@ -37,15 +36,16 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>1</td>
-                        <td>ali baba</td>
-                        <td>kol haga</td>
-                        <td>www.alibaba.com</td>
+                        {% for csp in csps %}
+                        <td>{{ csp[0] }}</td>
+                        <td>{{ csp[1] }}</td>
+                        <td>{{ csp[2] }}</td>
                         <td>
                           <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                         </td>
                         
                     </tr>
+                    {% endfor %}
                     </tbody>
                     
                     </table>
@@ -56,7 +56,7 @@
     
 <!--/.Mask-->
 </header>
-{% endblock %}
+  {% endblock %}
  
 
 

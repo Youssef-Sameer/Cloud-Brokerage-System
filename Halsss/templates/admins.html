@@ -25,47 +25,25 @@
             <table class="table table-striped table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th>#</th>
+                        <th>ID</th>
                         <th>Name <i class="fa fa-sort"></i></th>
-                        <th>City <i class="fa fa-sort"></i></th>
-                        <th>Country <i class="fa fa-sort"></i></th>
+                        <th>Email <i class="fa fa-sort"></i></th>
                         <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
+                    {% for admin in admins %}
                     <tr>
-                        <td>1</td>
-                        <td>Thomas Hardy</td>
-                        <td>Portland</td>
-                        <td>USA</td>
+                        <td>{{ admin[0] }}</td>
+                        <td>{{ admin[1] }}</td>
+                        <td>{{ admin[2] }}</td>
                         <td>
                            <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                         </td>
                         
                     </tr>
+                    {% endfor %}
                     </tbody>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Thomas Hardy</td>
-                            <td>Portland</td>
-                            <td>USA</td>
-                            <td>
-                             <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                            </td>
-                            
-                        </tr>
-                        </tbody><tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Thomas Hardy</td>
-                                <td>Portland</td>
-                                <td>USA</td>
-                                <td>
-                                  <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                                </td>
-                            </tr>
-                            </tbody>
                     </table>
 
 
