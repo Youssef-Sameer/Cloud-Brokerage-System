@@ -9,11 +9,11 @@ app.register_blueprint(my_blueprint)
 criteria = ["Data Encryption at rest","Encryption Algorithm","Key size","Key Generation","Key Inventory Management","Data Inventory","Data Classification","Data encryption in Transit","Encryption in Transit algorithm(RSA)","Key size","Data Retention and Deletion","Sensitive Data Protection","Infrastructure and Virtualization Security Policy and Procedures","Network Security 1","Network Security 2","Network Security 3","Network Security 4","Network Defense"]
 
 # Read in the performance matrix from a text file
-with open('performance_matrix.txt', 'r') as f:
+with open('Halsss/performance_matrix.txt', 'r') as f:
     performance_matrix = np.array([line.strip().split(',') for line in f.readlines()], dtype=float)
 
 # Read in the list of alternatives from a text file
-with open('alternatives.txt', 'r') as f:
+with open('Halsss/alternatives.txt', 'r') as f:
     alternatives = [line.strip() for line in f.readlines()]
 
 @app.route('/', methods=['GET', 'POST'])
