@@ -1,0 +1,10 @@
+AWS
+Alibaba
+IBM
+OVH
+Azure
+Google Cloud
+Pega Cloud
+Salesforce
+DigitalOcean
+Appian
