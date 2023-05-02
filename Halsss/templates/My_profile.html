@@ -73,9 +73,9 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Login</h2>
+          <h2>Contact</h2>
           <ol>
-            <li><a href="{{ url_for('my_blueprint.index') }}">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li>Contact</li>
           </ol>
         </div>
@@ -86,46 +86,36 @@
     <!-- ======= Contact Section ======= -->
     
 
-    <section id="contact" class="contact">
-      <div class="container">
-        <div class="row justify-content-center" data-aos="fade-up">
-          <div class="col-lg-10">
-            <div class="section-title">
-              <h2>Login</h2>
-              <div class="row mt-5 justify-content-center" data-aos="fade-up">
-                <div class="col-lg-10">
-                  <form action="login.php" method="post" role="form" class="php-email-form">
-                    <div class="row">
-                      <div class="col-md-6 form-group">
-                        <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
-                      </div>
-                      <div class="col-md-6 form-group mt-3 mt-md-0">
-                        <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+    <section id="profile" class="profile">
+        <div class="container">
+          <div class="row justify-content-center" data-aos="fade-up">
+            <div class="col-lg-10">
+              <div class="section-title">
+                <h2>Profile</h2>
+                <div class="row mt-5 justify-content-center" data-aos="fade-up">
+                  <div class="col-lg-6">
+                    <div class="card">
+                        
+                      <div class="card-body">
+                        <img src="static/img/user.png" class="card-img-top" height="250" >
+                        <h5>
+                            {% for row in userdata %}
+                               username: {{ row[0] }}
+                                 <br>
+                                 email: {{ row[1] }}
+                            {% endfor %}
+                        </h5>
+                        
                       </div>
                     </div>
-                    <div class="my-3">
-                      <div class="loading">Loading</div>
-                      <div class="error-message"></div>
-                      <div class="sent-message"></div>
-                    </div>
-                      <div class="text-center">
-                        <button type="submit">Login</button>
-                        <button type="submit" onclick="window.location.href='{{ url_for('my_blueprint.signup') }}'">Sign Up</button>
-                        <button type="submit" onclick="window.location.href='{{ url_for('my_blueprint.forgetpassword') }}'">Forgot Password</button>
-                      </div>
-                  </form>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    
-    
-    
-    
-    
+      </section>
+      
     <!-- End Contact Section -->
 
   </main><!-- End #main -->
