@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, url_for
-from routes import my_blueprint
+from views import my_blueprint
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
 app.secret_key = 'KLMMDSKCKSL8465-8451adsvdsklmklamdsak'

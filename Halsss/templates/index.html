@@ -63,12 +63,17 @@
             </ul>
           </li>
 
-         
+          {% if session.user_id %}
           <li><a href="{{ url_for('my_blueprint.logout') }}">Logout</a></li>
-
-          <li><a href="{{ url_for('my_blueprint.login') }}">Login</a></li>
-
           <li><a href="{{ url_for('my_blueprint.myprofile') }}">Profile</a></li>
+          {% else %}
+          <li><a href="{{ url_for('my_blueprint.login') }}">Login</a></li>
+          {% endif %}
+          
+
+          
+
+          
           
           <li><a href="{{ url_for('my_blueprint.contact') }}">Contact</a></li>
 

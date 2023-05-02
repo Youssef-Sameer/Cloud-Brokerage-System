@@ -1,9 +1,7 @@
 from flask import Flask, render_template, request, url_for
 import numpy as np
-from routes import my_blueprint
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
-app.register_blueprint(my_blueprint)
 
 # Define the criteria
 criteria = ["Data Encryption at rest","Encryption Algorithm","Key size","Key Generation","Key Inventory Management","Data Inventory","Data Classification","Data encryption in Transit","Encryption in Transit algorithm(RSA)","Key size","Data Retention and Deletion","Sensitive Data Protection","Infrastructure and Virtualization Security Policy and Procedures","Network Security 1","Network Security 2","Network Security 3","Network Security 4","Network Defense"]
@@ -51,6 +49,3 @@ def index():
     else:
         # Render the form page
         return render_template('form.html', criteria=criteria)
-
-if __name__ == '__main__':
-    app.run(debug=True)

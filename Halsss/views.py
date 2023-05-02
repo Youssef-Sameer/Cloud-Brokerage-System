@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, session
+from flask import Blueprint, render_template, request, redirect, session, url_for, flash
 my_blueprint = Blueprint('my_blueprint', __name__)
 import mysql.connector
 
@@ -60,7 +60,37 @@ def login():
 
 @my_blueprint.route('/signup', methods=['POST', 'GET'])
 def signup():
-    return render_template('Signup1.html')
+    if request.method == 'POST':
+        # Get form data
+        name = request.form['name']
+        email = request.form['email']
+        password = request.form['password']
+        confirm_password = request.form['confirm_password']
+
+        # Check if passwords match
+        if password != confirm_password:
+            error = 'Passwords do not match'
+            return render_template('signup1.html', error=error)
+
+        # Check if email already exists
+        cursor.execute("SELECT * FROM users WHERE user_email=%s", (email,))
+        user = cursor.fetchone()
+        if user is not None:
+            error = 'Email already exists'
+            return render_template('signup1.html', error=error)
+
+        # Insert new user into database
+        cursor.execute("INSERT INTO users (user_name, user_email, user_password) VALUES (%s, %s, %s)", (name, email, password))
+        mydb.commit()
+
+        # Log in user and redirect to index page
+        session['user_id'] = cursor.lastrowid
+        session['user_name'] = name
+        session['user_email'] = email
+        return render_template('index.html')
+    else:
+        return render_template('signup1.html')
+
 
 
 @my_blueprint.route('/myprofile', methods=['POST', 'GET'])

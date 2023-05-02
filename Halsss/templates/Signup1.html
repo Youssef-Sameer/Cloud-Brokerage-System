@@ -87,47 +87,48 @@
     
 
     <section id="contact" class="contact">
-        <div class="container">
-          <div class="row justify-content-center" data-aos="fade-up">
+    <div class="container">
+        <div class="row justify-content-center" data-aos="fade-up">
             <div class="col-lg-10">
-              <div class="section-title">
-                <h2>Sign Up</h2>
-                <div class="row mt-5 justify-content-center" data-aos="fade-up">
-                  <div class="col-lg-10">
-                    <form action="signup.php" method="post" role="form" class="php-email-form">
-                      <div class="row">
-                        <div class="col-md-6 form-group">
-                          <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                <div class="section-title">
+                    <h2>Sign Up</h2>
+                    <div class="row mt-5 justify-content-center" data-aos="fade-up">
+                        <div class="col-lg-10">
+                            <form action="" method="POST" role="form" class="php-email-form">
+                                <div class="row">
+                                    <div class="col-md-6 form-group">
+                                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                                    </div>
+                                    <div class="col-md-6 form-group mt-3 mt-md-0">
+                                        <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 form-group mt-3">
+                                        <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+                                    </div>
+                                    <div class="col-md-6 form-group mt-3">
+                                        <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required>
+                                    </div>
+                                </div>
+                                <div class="my-3">
+                                    <div class="loading">Loading</div>
+                                    <div class="error-message"></div>
+                                    <div class="sent-message"></div>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit">Sign Up</button>
+                                    <button type="button" onclick="window.location.href='{{ url_for('my_blueprint.login') }}'">Back to Login</button>
+                                </div>
+                            </form>
                         </div>
-                        <div class="col-md-6 form-group mt-3 mt-md-0">
-                          <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6 form-group mt-3">
-                          <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
-                        </div>
-                        <div class="col-md-6 form-group mt-3">
-                          <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required>
-                        </div>
-                      </div>
-                      <div class="my-3">
-                        <div class="loading">Loading</div>
-                        <div class="error-message"></div>
-                        <div class="sent-message"></div>
-                      </div>
-                      <div class="text-center">
-                        <button type="submit">Sign Up</button>
-                        <button type="submit" onclick="window.location.href='{{ url_for('my_blueprint.login') }}'">Back to Login</button>
-                      </div>
-                    </form>
-                  </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </section>      
+    </div>
+</section>
+     
     
     
     
