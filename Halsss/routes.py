@@ -66,8 +66,12 @@ def signup():
 @my_blueprint.route('/myprofile', methods=['POST', 'GET'])
 def myprofile():
     user_id = session.get('user_id')
-    user_name = session.get('user_name')
-    user_email = session.get('user_email')
     cursor.execute("SELECT * FROM users WHERE id=%s", (user_id,))
     user = cursor.fetchone()
     return render_template('My_profile.html', userdata=user)
+
+@my_blueprint.route('/logout')
+def logout():
+    session.clear()
+    return render_template('login1.html')
+

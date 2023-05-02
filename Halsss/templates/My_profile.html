@@ -99,11 +99,9 @@
                       <div class="card-body">
                         <img src="static/img/user.png" class="card-img-top" height="250" >
                         <h5>
-                            {% for row in userdata %}
-                               username: {{ row[0] }}
-                                 <br>
-                                 email: {{ row[1] }}
-                            {% endfor %}
+                            Username: {{ userdata[1] }}
+                            <br>
+                            Email: {{ userdata[2] }}
                         </h5>
                         
                       </div>
