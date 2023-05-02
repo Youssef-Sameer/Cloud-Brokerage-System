@@ -94,7 +94,7 @@
               <h2>Login</h2>
               <div class="row mt-5 justify-content-center" data-aos="fade-up">
                 <div class="col-lg-10">
-                  <form action="login.php" method="post" role="form" class="php-email-form">
+                  <form action="" method="post" role="form" class="php-email-form">
                     <div class="row">
                       <div class="col-md-6 form-group">
                         <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
@@ -110,13 +110,14 @@
                     </div>
                       <div class="text-center">
                         <button type="submit">Login</button>
-                        <button type="submit" onclick="window.location.href='{{ url_for('my_blueprint.signup') }}'">Sign Up</button>
-                        <button type="submit" onclick="window.location.href='{{ url_for('my_blueprint.forgetpassword') }}'">Forgot Password</button>
+                        <button type="button" onclick="window.location.href='{{ url_for('my_blueprint.signup') }}'">Sign Up</button>
+                        <button type="button" onclick="window.location.href='{{ url_for('my_blueprint.forgetpassword') }}'">Forgot Password</button>
                       </div>
                   </form>
                 </div>
               </div>
             </div>
+            {{session}}
           </div>
         </div>
       </div>
