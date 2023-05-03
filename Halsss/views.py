@@ -38,9 +38,25 @@ def level1():
 def level2():
     return render_template('level2.html')
 
+@my_blueprint.route('/level2_2', methods=['POST', 'GET'])
+def level2_2():
+    return render_template('level2_2.html')
+
+@my_blueprint.route('/level2_3', methods=['POST', 'GET'])
+def level2_3():
+    return render_template('level2_3.html')
+
 @my_blueprint.route('/level3', methods=['POST', 'GET'])
 def level3():
     return render_template('level3.html')
+
+@my_blueprint.route('/level3-2', methods=['POST', 'GET'])
+def level3_2():
+    return render_template('level3_2.html')
+
+@my_blueprint.route('/level3_3', methods=['POST', 'GET'])
+def level3_3():
+    return render_template('level3_3.html')
 
 @my_blueprint.route('/login', methods=['POST', 'GET'])
 def login():
@@ -135,4 +151,8 @@ def viewadmins():
     cursor.execute("SELECT * FROM users WHERE user_type='Admin'")
     admins=cursor.fetchall()
     return render_template('admins.html',admins=admins)
+
+@my_blueprint.route('/result')
+def result():
+    return render_template('result.html')
 

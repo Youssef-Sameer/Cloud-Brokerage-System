@@ -1,34 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Level 2 Questions</title>
-  <!-- MDB icon -->
-
-
-  <!-- Font Awesome -->
-  <link rel="icon" href="assets/img/cloudservice.ico" type="image/x-icon">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-  <!-- Google Fonts Roboto -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-  <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  <!-- Material Design Bootstrap -->
-  <link rel="stylesheet" href="assets/css/mdb.min.css">
-  <!-- Your custom styles (optional) -->
-  <link rel="stylesheet" href="assets/css/syle5.css">
-</head>
-  <body>
-
-<!--Main Navigation-->
-<header>
-<!--Navbar-->
-
-<!--/.Navbar-->
-
-<!--Mask-->
+{% extends "base.html" %} {% block title%}Login{% endblock %} {% block content
+  %}
   <div class="header">
     <h2><font size=6>Answer some questions</font></h2>
   </div>
@@ -43,7 +14,7 @@
             </div>
             <div class="sourceStation-and-destinationStaion">
 
-             <p style="color:white">  </i>Q1)Do you want data to be encrypted at rest
+             <p>  </i>Q1)Do you want data to be encrypted at rest?
               <i class="fa fa-question-circle" style="color:white"></i></p> 
              <select name="choices" id="source" required class="form-select">
                     
@@ -59,7 +30,7 @@
                 <br>
                
 
-                <p style="color:white">Q2)Do you want the key size of the encryption algorithm to be(Encryption at rest)
+                <p>Q2)Do you want the key size of the encryption algorithm to be(Encryption at rest)
                  <i class="fa fa-question-circle" style="color:white"></i></p> 
             <select name="choices" id="source" required class="form-select">
                     
@@ -74,7 +45,14 @@
                 <br>
  
                 <br>
-               <center> <a class="btn" href="level3.html">Submit</a>
+                <center>
+                  <a href="{{ url_for('my_blueprint.level2_2') }}" class="btn">Next</a>
+ 
+                </center>
+            </div>
+        </div>
+      <br>
+      
                    
                 
 
@@ -82,32 +60,4 @@
     
 <!--/.Mask-->
 </header>
-<!--Main Navigation-->
-
-<!--Main layout-->
-<main>
-
-</main>
-<!--Main layout-->
-
-<!--Footer-->
-<footer>
-
-</footer>
-<!--Footer-->
-
-
-
-  <!-- jQuery -->
-  <script type="text/javascript" src="js/jquery.min.js"></script>
-  <!-- Bootstrap tooltips -->
-  <script type="text/javascript" src="js/popper.min.js"></script>
-  <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <!-- MDB core JavaScript -->
-  <script type="text/javascript" src="js/mdb.min.js"></script>
-  <!-- Your custom scripts (optional) -->
-  <script type="text/javascript"></script>
-
-</body>
-</html>
+{% endblock %}

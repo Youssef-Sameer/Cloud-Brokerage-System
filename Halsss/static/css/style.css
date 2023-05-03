@@ -1555,11 +1555,23 @@ section {
   border-radius: 4px;
 }
 
-.contact .php-email-form button[type=submit]:hover {
-  background: #2ae149;
-}
 .contact .php-email-form button[type=button]:hover {
   background: #2ae149;
+}
+.buttongreen {
+  background-color: #1bbd36;
+  border: none;
+  color: white;
+  padding: 10px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+}
+.buttongreen:hover {
+  background-color: #2ae149;
+  color: white;
 }
 
 @keyframes animate-loading {

@@ -1,0 +1,164 @@
+{% extends "base.html" %} {% block title%}Login{% endblock %} {% block content
+  %}
+  <br>
+  <br>
+  <br>
+  <br>
+  <center>
+    <div class="header">
+
+        <h1><b> Answer some questions </b></h1>
+    </div>
+
+    <form name="bookticket" action = "" method="post"  onsubmit="return validateform()" >
+        <div class="user-input">
+
+           
+                       <div class="radio-buuton-header">
+                <p class="p2" ><font size=5><b> <u>Data Security and Privacy:</u></b></font></p>
+            </div>
+            <div class="sourceStation-and-destinationStaion">
+
+             
+  <p >  </i>Q5)Do you want your data to be created and maintained in the data inventory?
+  <i class="fa fa-question-circle" ></i></p> 
+  <label >
+    <div class="form-check">
+    <input   type="radio"  name="pizza" value="yes">
+    Yes
+  </label>
+</div>
+   <div class="form-check">
+  <label >
+    <input type="radio" name="pizza"  value="no">
+    No
+    
+  </label>
+   
+  </div>
+  
+
+    <p >Q6)Do you have different sensitivity level in your data?
+    <i class="fa fa-question-circle" ></i></p> 
+    <div class="form-check">
+        <input   type="radio"  name="pizza" value="yes">
+        Yes
+      </label>
+    </div>
+       <div class="form-check">
+      <label >
+        <input type="radio" name="pizza"  value="no">
+        No
+        <br>
+      </label>
+       
+      </div>
+      
+      <p >Q7)Do you want the more sensitive data to be more secured?
+        <i class="fa fa-question-circle" ></i></p> 
+        <div class="form-check">
+            <input   type="radio"  name="pizza" value="yes">
+            Yes
+          </label>
+        </div>
+           <div class="form-check">
+          <label >
+            <input type="radio" name="pizza"  value="no">
+            No
+            <br>
+          </label>
+           
+          </div>
+
+             
+      
+
+<div class="form-check">
+<p > Q8)Do you want data to be encrypted in transit?
+  <i class="fa fa-question-circle" ></i></p>
+  <label>
+    <input type="radio"  name="pizza" value="yes" onclick="showAdditionalQuestion1()">
+    Yes
+  </label>
+  </div>
+  
+  <label>
+    <div class="form-check">
+        <label >
+          <input type="radio" name="pizza"  value="no" onclick="hideAdditionalQuestion1()">
+          No
+          <br>
+        </label>
+        </div>
+   
+  <div id="additional-question" style="display:none;">
+
+
+            <div class="sourceStation-and-destinationStaion">
+</div>
+
+
+<div class="sourceStation-and-destinationStaion">
+
+     <p >  </i>Q9)Which key size of RSA do you prefer?
+ <i class="fa fa-question-circle" ></i></p> 
+<select name="choices" id="source" required class="form-select">
+       
+       <optgroup label="choices">
+       <option value="Strong">RSA</option>
+       <option value="Medium">AES</option>
+       <option value="Weak">Triple-Des</option>
+
+       
+       </optgroup>
+   </select>
+
+
+
+</div>
+
+</div>
+</center>
+
+   
+
+<center>
+  <a href="{{ url_for('my_blueprint.level2_2') }}" class="buttongreen">Next</a> 
+</center>
+<br>
+      
+    </form>
+
+    
+<!--/.Mask-->
+</header>
+
+
+
+   <script>
+  function showAdditionalQuestion() {
+    document.getElementById("additional-question1").style.display = "block";
+  }
+
+  function hideAdditionalQuestion() {
+    document.getElementById("additional-question1").style.display = "none";
+
+    
+  }function showAdditionalQuestion1() {
+    document.getElementById("additional-question").style.display = "block";
+  }
+
+  function hideAdditionalQuestion1() {
+    document.getElementById("additional-question").style.display = "none";
+  }
+
+  function showAdditionalQuestion2() {
+    document.getElementById("additional-question2").style.display = "block";
+  }
+
+  function hideAdditionalQuestion2() {
+    document.getElementById("additional-question2").style.display = "none";
+  }
+
+</script>
+{% endblock %}

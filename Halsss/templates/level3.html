@@ -1,34 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Expert</title>
-  <!-- MDB icon -->
-
-
-  <!-- Font Awesome -->
-  <link rel="icon" href="assets/img/cloudservice.ico" type="image/x-icon">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-  <!-- Google Fonts Roboto -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-  <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  <!-- Material Design Bootstrap -->
-  <link rel="stylesheet" href="assets/css/mdb.min.css">
-  <!-- Your custom styles (optional) -->
-  <link rel="stylesheet" href="assets/css/syle5.css">
-</head>
-  <body>
-
-<!--Main Navigation-->
-<header>
-<!--Navbar-->
-
-<!--/.Navbar-->
-
-<!--Mask-->
+{% extends "base.html" %} {% block title%}Login{% endblock %} {% block content
+  %}
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <center>
     <div class="header">
 
         <h1><b> Answer some questions </b></h1>
@@ -39,21 +17,21 @@
 
            
                        <div class="radio-buuton-header">
-                <p class="p2" style="color:white"><font size=5><b> <u>Cryptography,Encryption&Key Management:</u></b></font></p>
+                <p class="p2" ><font size=5><b> <u>Cryptography,Encryption&Key Management:</u></b></font></p>
             </div>
             <div class="sourceStation-and-destinationStaion">
 
              
-             <p style="color:white">  </i>Q1)Do you want data to be encrypted at rest
-              <i class="fa fa-question-circle" style="color:white"></i></p> 
-  <label style="color:white">
+             <p>  </i>Q1)Do you want data to be encrypted at rest
+              <i class="fa fa-question-circle"></i></p> 
+  <label>
     <div class="form-check">
     <input   type="radio"  name="pizza" value="yes" onclick="showAdditionalQuestion()">
     Yes
   </label>
 </div>
    <div class="form-check">
-  <label style="color:white">
+  <label>
     <input type="radio" name="pizza"  value="no" onclick="hideAdditionalQuestion()">
     No
     
@@ -62,7 +40,7 @@
   </div>
   <div id="additional-question1" style="display:none;">
 
-    <p style="color:white">Q2)Which encryption algorithm you prefer? </p>
+    <p>Q2)Which encryption algorithm you prefer? </p>
     
                     <select name="choices" id="source" required>
                     
@@ -73,7 +51,7 @@
                          </optgroup>
                         </select>
               
-                        <p style="color:white">Q3)Which key size you prefer?  </p> 
+                        <p >Q3)Which key size you prefer?  </p> 
                         <select name="choices" id="source" required>
                         <optgroup label="choices">
                         <option value="256">256</option>
@@ -88,17 +66,17 @@
 
                 <div class="sourceStation-and-destinationStaion">
 </div>
-             <p style="color:white">Q4)Do you want the key inventory management system to track, and reports changes made to cryptographic
+             <p>Q4)Do you want the key inventory management system to track, and reports changes made to cryptographic
 materials (encryption tools)?
-<i class="fa fa-question-circle" style="color:white"></i></p> 
-  <label style="color:white">
+<i class="fa fa-question-circle"></i></p> 
+  <label>
     <div class="form-check">
     <input type="radio" name="4" value="yes" >
-    <font style="color:white">Yes</font>
+    <font>Yes</font>
   </label>
 </div>
    <div class="form-check">
-  <label style="color:white">
+  <label>
     <input type="radio"  name="4"value="no" >
     No
     
@@ -108,31 +86,14 @@ materials (encryption tools)?
  
 
     </div>
-       <a class="btn" style="margin-left: 265px;" href="level3.html">next</a>
+    <center>
+      <a href="{{ url_for('my_blueprint.level3_2') }}" class="buttongreen">Next</a> 
+    </center>
     </form>
-
-  <script>
-    function nextQuestion() {
-      window.location.href = "level3_2";
-    }
-  </script
+</center>
     
 <!--/.Mask-->
 </header>
-<!--Main Navigation-->
-
-<!--Main layout-->
-<main>
-
-</main>
-<!--Main layout-->
-
-<!--Footer-->
-<footer>
-
-</footer>
-<!--Footer-->
-
 
    <script>
   function showAdditionalQuestion() {
@@ -158,18 +119,6 @@ materials (encryption tools)?
   function hideAdditionalQuestion2() {
     document.getElementById("additional-question2").style.display = "none";
   }
-
 </script>
-  <!-- jQuery -->
-  <script type="text/javascript" src="js/jquery.min.js"></script>
-  <!-- Bootstrap tooltips -->
-  <script type="text/javascript" src="js/popper.min.js"></script>
-  <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <!-- MDB core JavaScript -->
-  <script type="text/javascript" src="js/mdb.min.js"></script>
-  <!-- Your custom scripts (optional) -->
-  <script type="text/javascript"></script>
 
-</body>
-</html>
+{%endblock%}
