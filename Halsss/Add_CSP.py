@@ -1,7 +1,3 @@
-import csv
-import tkinter as tk
-from tkinter import filedialog
-
 def string_to_num(input_list):
     output_list = []
     for string in input_list:
@@ -30,23 +26,3 @@ def string_to_num(input_list):
             except ValueError:
                 output_list.append(string)
     return output_list
-
-
-def main():
-    root = tk.Tk()
-    root.withdraw()
-
-    file_path = filedialog.askopenfilename()
-    if not file_path:
-        return
-
-    with open(file_path, 'r', encoding='utf-8-sig') as csv_file, open('performance_matrix.txt', 'a') as txt_file, open('alternatives.txt', 'a') as alt_file:
-        for line in csv_file:
-            row = line.strip().split(',')
-            alt_file.write(row[0] + '\n')
-            output_list = string_to_num(row[1:])
-            txt_file.write(','.join(map(str, output_list)) + '\n')
-
-    print("Output written to performance_matrix.txt")
-if __name__ == "__main__":
-    main()
