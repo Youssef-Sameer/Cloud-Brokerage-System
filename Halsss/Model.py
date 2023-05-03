@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, url_for
 import numpy as np
 from views import cursor
+from views import my_blueprint
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
 
@@ -19,8 +20,8 @@ cursor.execute(alternatives_query)
 alternatives_result = cursor.fetchall()
 alternatives = [result[0] for result in alternatives_result]
 
-@app.route('/', methods=['GET', 'POST'])
-def index():
+@my_blueprint.route('model', methods=['GET', 'POST'])
+def model():
     if request.method == 'POST':
         # Read the criteria weights from the form
         weights = np.array(request.form.getlist('weight')).astype(float)
