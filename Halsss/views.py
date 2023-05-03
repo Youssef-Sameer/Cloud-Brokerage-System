@@ -124,7 +124,7 @@ def addcsp():
 
 @my_blueprint.route('/viewcsp')
 def viewcsp():
-    cursor.execute("SELECT * FROM cloud_providers")
+    cursor.execute("SELECT * FROM Cloud_provider")
     csps=cursor.fetchall()
     return render_template('admin_panel_view_csp.html',csps=csps)
 @my_blueprint.route('/viewadmins')
