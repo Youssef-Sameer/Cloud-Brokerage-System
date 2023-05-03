@@ -1,3 +1,4 @@
+import csv
 from flask import Blueprint, render_template, request, redirect, session, url_for, flash
 my_blueprint = Blueprint('my_blueprint', __name__)
 import mysql.connector
@@ -27,7 +28,7 @@ def contact():
 
 @my_blueprint.route('/forgetpassword', methods=['POST', 'GET'])
 def forgetpassword():
-    return render_template('forgetpassword1.html')
+    return render_template('forgetpassword.html')
 
 @my_blueprint.route('/level1', methods=['POST', 'GET'])
 def level1():
@@ -73,14 +74,14 @@ def signup():
         # Check if passwords match
         if password != confirm_password:
             error = 'Passwords do not match'
-            return render_template('signup1.html', error=error)
+            return render_template('signup.html', error=error)
 
         # Check if email already exists
         cursor.execute("SELECT * FROM users WHERE user_email=%s", (email,))
         user = cursor.fetchone()
         if user is not None:
             error = 'Email already exists'
-            return render_template('signup1.html', error=error)
+            return render_template('signup.html', error=error)
 
         # Insert new user into database
         cursor.execute("INSERT INTO users (user_name, user_email, user_password,user_type) VALUES (%s, %s, %s,%s)", (name, email, password,type))
@@ -93,7 +94,7 @@ def signup():
         session['user_type'] = type
         return render_template('index.html')
     else:
-        return render_template('signup1.html')
+        return render_template('signup.html')
 
 
 
@@ -121,16 +122,24 @@ def addadmin():
 
 @my_blueprint.route('/addcsp')
 def addcsp():
-    file = request.files['file']
-    if not file:
-        return 'No file uploaded.'
-    with open(file.filename, 'r', encoding='utf-8-sig') as csv_file, open('performance_matrix.txt', 'a') as txt_file, open('alternatives.txt', 'a') as alt_file:
-        for line in csv_file:
-            row = line.strip().split(',')
-            alt_file.write(row[0] + '\n')
-            output_list = string_to_num(row[1:])
-            txt_file.write(','.join(map(str, output_list)) + '\n')
-    return 'File uploaded.'
+    if request.method == 'POST':
+        file = request.files['file']
+        if file:
+            # Save the uploaded file to disk
+            file.save('tmp.csv')
+
+            # Process the file and write the output to performance_matrix.txt and alternatives.txt
+            with open('tmp.csv', 'r', encoding='utf-8-sig') as csv_file, \
+                    open('performance_matrix.txt', 'a') as txt_file, \
+                    open('alternatives.txt', 'a') as alt_file:
+                csv_reader = csv.reader(csv_file)
+                for row in csv_reader:
+                    alt_file.write(row[0] + '\n')
+                    output_list = string_to_num(row[1:])
+                    txt_file.write(','.join(map(str, output_list)) + '\n')
+
+            return "Output written to performance_matrix.txt"
+    return render_template('add_csp.html')
 
 @my_blueprint.route('/viewcsp')
 def viewcsp():

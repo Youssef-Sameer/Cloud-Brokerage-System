@@ -1,6 +1,7 @@
+from flask import Flask, render_template, request
 import csv
-import tkinter as tk
-from tkinter import filedialog
+
+app = Flask(__name__)
 
 def string_to_num(input_list):
     output_list = []
@@ -30,4 +31,3 @@ def string_to_num(input_list):
             except ValueError:
                 output_list.append(string)
     return output_list
-
