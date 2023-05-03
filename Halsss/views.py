@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, session, url_for, flash
 my_blueprint = Blueprint('my_blueprint', __name__)
 import mysql.connector
+from ADD_CSPSS import string_to_num
 
 # Configure MySQL connection
 mydb = mysql.connector.connect(
@@ -55,9 +56,9 @@ def login():
             return render_template('index.html')
         else:
             error = 'Invalid email or password'
-            return render_template('login1.html', error=error)
+            return render_template('login.html', error=error)
     else:
-        return render_template('login1.html')
+        return render_template('login.html')
 
 @my_blueprint.route('/signup', methods=['POST', 'GET'])
 def signup():
@@ -120,13 +121,23 @@ def addadmin():
 
 @my_blueprint.route('/addcsp')
 def addcsp():
-    return render_template('add_csp.html')
+    file = request.files['file']
+    if not file:
+        return 'No file uploaded.'
+    with open(file.filename, 'r', encoding='utf-8-sig') as csv_file, open('performance_matrix.txt', 'a') as txt_file, open('alternatives.txt', 'a') as alt_file:
+        for line in csv_file:
+            row = line.strip().split(',')
+            alt_file.write(row[0] + '\n')
+            output_list = string_to_num(row[1:])
+            txt_file.write(','.join(map(str, output_list)) + '\n')
+    return 'File uploaded.'
 
 @my_blueprint.route('/viewcsp')
 def viewcsp():
     cursor.execute("SELECT * FROM Cloud_provider")
     csps=cursor.fetchall()
     return render_template('admin_panel_view_csp.html',csps=csps)
+
 @my_blueprint.route('/viewadmins')
 def viewadmins():
     cursor.execute("SELECT * FROM users WHERE user_type='Admin'")
