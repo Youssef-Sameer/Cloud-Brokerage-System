@@ -143,3 +143,4 @@ def viewadmins():
     cursor.execute("SELECT * FROM users WHERE user_type='Admin'")
     admins=cursor.fetchall()
     return render_template('admins.html',admins=admins)
+
