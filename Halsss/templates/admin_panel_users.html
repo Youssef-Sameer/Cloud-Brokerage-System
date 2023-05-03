@@ -1,0 +1,65 @@
+{% extends "adminpanelbase.html" %} 
+{% block title%}Login{% endblock %} 
+{% block content %}
+    <br>
+    <br>
+
+    <!--Main Navigation-->
+    <header>
+        <br>
+        <br>
+        <!--Mask-->
+
+        <div class="container-xl">
+            <div class="table-responsive">
+                <div class="table-wrapper">
+                    <div class="table-title">
+                        <div class="row">
+                            <div class="col-sm-8"><h2>Users </h2></div>
+                            <div class="col-sm-4">
+                                <div class="search-box">
+                                    <i class="material-icons">&#xE8B6;</i>
+                                    <input type="text" class="form-control" placeholder="Search&hellip;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name </th>
+                                <th>Email </th>
+                                <th>Role</th>
+                                <th>Delete</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for user in users %}
+                                <tr>
+                                    <td>{{ user[0] }}</td>
+                                    <td>{{ user[1] }}</td>
+                                    <td>{{ user[2] }}</td>
+                                    <td>{{ user[4] }}</td>
+                                    <td>
+                                        {% if user[4] == 'Admin' %}
+                                            <button class="btn btn-danger">Remove Admin</button>
+                                        {% else %}
+                                            <button href="" class="btn btn-success">Add Admin</button>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!--/.Mask-->
+    </header>
+{% endblock %}
