@@ -75,6 +75,7 @@
           <li><a href="{{ url_for('my_blueprint.about') }}">About Us</a></li>
           <li><a href="{{ url_for('my_blueprint.contact') }}">Contact</a></li>
           <li><a href="{{ url_for('my_blueprint.myprofile') }}">Profile</a></li>
+          <li><a href="{{ url_for('my_blueprint.form') }}">Form</a></li>
           
           {% endif %}
           {% if session.user_id %}
@@ -144,6 +145,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="{{ url_for('my_blueprint.about') }}">About us</a></li>
               {% if session.user_id %}
               <li><i class="bx bx-chevron-right"></i> <a href="{{ url_for('my_blueprint.logout') }}">Logout</a></li>
+            
               {% else %}
               <li><i class="bx bx-chevron-right"></i> <a href="{{ url_for('my_blueprint.login') }}">Login</a></li>
               {% endif %}

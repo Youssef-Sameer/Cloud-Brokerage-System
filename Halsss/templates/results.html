@@ -1,0 +1,27 @@
+{% extends "adminpanelbase.html" %} {% block title%}Login{% endblock %} {% block content
+    %}
+    <br><br><br>
+    <center>
+<body>
+    <h1>Results</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Ranking</th>
+                <th>Alternative</th>
+                <th>Relative Closeness</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in range(num_alternatives) %}
+                <tr>
+                    <td>{{ i+1 }}</td>
+                    <td>{{ alternatives[rankings[i]] }}</td>
+                    <td>{{ '{:.5f}'.format(relative_closeness[rankings[i]]) }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+<center>
+{% endblock %}
