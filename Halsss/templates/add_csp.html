@@ -1,4 +1,38 @@
 {% extends "adminpanelbase.html" %}
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+
+{% block title%}Add CSP{% endblock %}
+
+{% block content %}
+    <!--Main Navigation-->
+    <header>
+        <br>
+        <br>
+        <br>
+        <!--Mask-->
+        <div class="header">
+            <h2><font size=6>Add CSP</font></h2>
+        </div>
+        <form method="post" enctype="multipart/form-data" action="">
+            <!--display validation errors here-->
+            <div class="input-group">
+                <label><font color="white">Upload CSV file:</font></label>
+                <input type="file" name="csv_file" id="csv_file" required>
+            </div>
+            <div class="input-group">
+                <button type="submit" name="upload_csv" class="btn">Upload CSV</button>
+            </div>
+            <div class="input-group">
+                <button type="submit" name="submit_csv" class="btn">Submit</button>
+            </div>
+            {{ message }}
+        </form>
+        <!--/.Mask-->
+    </header>
+=======
+>>>>>>> Stashed changes
 {% block title%}Add CSP{% endblock %}
 {% block content %}
 <!--Main Navigation-->
@@ -25,4 +59,5 @@
     </form>
     <!--/.Mask-->
 </header>
+>>>>>>> 26e79eb8b83273cb91db3aea6ab75800b0721fd6
 {% endblock %}

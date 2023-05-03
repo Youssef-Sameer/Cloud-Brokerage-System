@@ -122,23 +122,6 @@ def addadmin():
 
 @my_blueprint.route('/addcsp')
 def addcsp():
-    if request.method == 'POST':
-        file = request.files['file']
-        if file:
-            # Save the uploaded file to disk
-            file.save('tmp.csv')
-
-            # Process the file and write the output to performance_matrix.txt and alternatives.txt
-            with open('tmp.csv', 'r', encoding='utf-8-sig') as csv_file, \
-                    open('performance_matrix.txt', 'a') as txt_file, \
-                    open('alternatives.txt', 'a') as alt_file:
-                csv_reader = csv.reader(csv_file)
-                for row in csv_reader:
-                    alt_file.write(row[0] + '\n')
-                    output_list = string_to_num(row[1:])
-                    txt_file.write(','.join(map(str, output_list)) + '\n')
-
-            return "Output written to performance_matrix.txt"
     return render_template('add_csp.html')
 
 @my_blueprint.route('/viewcsp')
