@@ -35,7 +35,7 @@ def forgetpassword():
 
 @my_blueprint.route('/level1', methods=['POST', 'GET'])
 def level1():
-    return render_template('level1.html')
+    return model()
 
 @my_blueprint.route('/level2', methods=['POST', 'GET'])
 def level2():
@@ -158,10 +158,6 @@ def viewadmins():
 @my_blueprint.route('/result')
 def result():
     return render_template('result.html')
-
-@my_blueprint.route('/form', methods=['POST', 'GET'])
-def form():
-    return model()
     
 @my_blueprint.route('/csp_request', methods=['POST', 'GET'])
 def csp_request():
