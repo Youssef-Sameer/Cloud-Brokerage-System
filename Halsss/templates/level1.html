@@ -1,45 +1,32 @@
 {% extends "base.html" %} {% block title%}Login{% endblock %} {% block content
   %}
-
-<!--Main Navigation-->
-<header>
-<!--Navbar-->
-
-<!--/.Navbar-->
-
-<!--Mask-->
+<br><br><br><br><br>
+<center>
   <div class="header">
     <h2><font size=6>Answer some questions</font></h2>
   </div>
-    <form name="bookticket" action = "" method="post"  onsubmit="return validateform()" class="php-email-form" >
-        <div class="user-input">
+    <form name="bookticket" action = "" method="post" class="php-email-form" >
+        <div class="Level1">
 
             <div class="radio-buuton-header">
                 
             </div>
             <div class="radio-buuton-header">
-                <p class="p2" style="color:white"><font size=5><b><u> Encryption & Network Security:</u></b></font></p>
+                <p class="p2" ><font size=5><b><u> Encryption & Network Security:</u></b></font></p>
             </div>
             <div class="sourceStation-and-destinationStaion">
-
              <p>  </i>Do you want the encryption on your data at rest to be 
-              <i class="fa fa-question-circle" style="color:white"></i></p> 
+              <i class="fa fa-question-circle" ></i></p> 
              <select name="choices" id="source" required class="form-select">
-                    
                     <optgroup label="choices">
                     <option value="Strong">Strong</option>
                     <option value="Medium">Medium</option>
                     <option value="Weak">Weak</option>
-
-                    
                     </optgroup>
                 </select>
-
                 <br>
-               
-
                 <p>Do you want the encryption on your data at transfer to be
-                 <i class="fa fa-question-circle" style="color:white"></i></p> 
+                 <i class="fa fa-question-circle" ></i></p> 
             <select name="choices" id="source" required class="form-select">
                     
                     <optgroup label="choices">
@@ -52,7 +39,7 @@
                 </select>      
                 <br>
              <p>Do you want the encryption on your data at transfer to be
-              <i class="fa fa-question-circle" style="color:white"></i></p> 
+              <i class="fa fa-question-circle" ></i></p> 
               <select name="choices" id="source" required class="form-select">
                     
                     <optgroup label="choices">
@@ -65,7 +52,7 @@
                 </select>
                 <br>
                 <center>
-                  <a href="{{ url_for('my_blueprint.result') }}" class="buttongreen">submit</a> 
+                  <input type="submit" value="Submit" class="buttongreen">
                 </center>
                     </form>
             </div>
@@ -76,7 +63,6 @@
                 
 
     </form>
+</center>
     
-<!--/.Mask-->
-</header>
 {% endblock %}

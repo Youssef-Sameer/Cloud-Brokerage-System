@@ -1,63 +1,154 @@
 {% extends "base.html" %} {% block title%}Login{% endblock %} {% block content
   %}
+  <br><br><br><br>
   <div class="header">
     <h2><font size=6>Answer some questions</font></h2>
   </div>
-    <form name="bookticket" action = "" method="post"  onsubmit="return validateform()" >
-        <div class="user-input">
-
-            <div class="radio-buuton-header">
-                
+  <!-- LEVEL 2.1 -->
+  <center>
+    <form name="Level2" action = "" method="post">
+        <div  id="Level2.1">
+            <div class="radio-buuton-header">             
             </div>
             <div class="radio-buuton-header">
-                <p class="p2" style="color:white"><font size=5><b> <u>Cryptography,Encryption&Key Management:</u></b></font></p>
+                <p class="p2"><font size=5><b> <u>Cryptography,Encryption&Key Management:</u></b></font></p>
             </div>
             <div class="sourceStation-and-destinationStaion">
 
              <p>  </i>Do you want data to be encrypted at rest?
-              <i class="fa fa-question-circle" style="color:white"></i></p> 
-             <select name="choices" id="source" required class="form-select">
+              <i class="fa fa-question-circle" ></i></p> 
+             <select name="weight" id="source" required class="form-select">
                     
-                    <optgroup label="choices">
+                    <optgroup label="weight">
                     <option value="Strong">Strong</option>
                     <option value="Medium">Medium</option>
                     <option value="Weak">Weak</option>
-
-                    
+                   
                     </optgroup>
                 </select>
-
                 <br>
                
-
                 <p>Do you want the key size of the encryption algorithm to be(Encryption at rest)
-                 <i class="fa fa-question-circle" style="color:white"></i></p> 
-            <select name="choices" id="source" required class="form-select">
+                 <i class="fa fa-question-circle" ></i></p> 
+            <select name="weight" id="source" required class="form-select">
                     
-                    <optgroup label="choices">
+                    <optgroup label="weight">
                     <option value="Strong">Strong</option>
                     <option value="Medium">Medium</option>
-                    <option value="Weak">Weak</option>
-
-                    
+                    <option value="Weak">Weak</option>                  
                     </optgroup>
                 </select>      
                 <br>
- 
                 <br>
                 <center>
-                  <a href="{{ url_for('my_blueprint.level2_2') }}" class="buttongreen">Next</a>
+                  <button class = "buttongreen" type="button" onclick="showSection('Level2.2')">Next</button>
  
                 </center>
             </div>
         </div>
       <br>
-      
+      <!-- LEVEL 2.2 -->
+      <div  id="Level2.2" style="display: none">
+
+        <div class="radio-buuton-header">
+            
+        </div>
+        <div class="radio-buuton-header">
+            <p class="p2" ><font size=5><b> <u>Data Security and Privacy Management:</u></b></font></p>
+        </div>
+        <div class="sourceStation-and-destinationStaion">
+
+         <p>  </i>Do you want the encryption on your data in transit to be?
+          <i class="fa fa-question-circle" ></i></p> 
+         <select name="weight" id="source" required class="form-select">
+                
+                <optgroup label="weight">
+                <option value="Strong">Strong</option>
+                <option value="Medium">Medium</option>
+                <option value="Weak">Weak</option>                
+                </optgroup>
+            </select>
+            <br>
+            <p>Do you want the key size of the encryption algorithm to be (Encryption in transit)?
+             <i class="fa fa-question-circle" ></i></p> 
+        <select name="weight" id="source" required class="form-select">
+                
+                <optgroup label="weight">
+                <option value="Strong">Strong</option>
+                <option value="Medium">Medium</option>
+                <option value="Weak">Weak</option>
+
+                
+                </optgroup>
+            </select>      
+            <br>
+
+            <br>
+            <center>
+              <!-- <button class = "buttongreen" type="button" onclick="showSection('Level2.1')">Previous</button> -->
+              <button class = "buttongreen" type="button" onclick="showSection('Level2.3')">Next</button>
+            </center>
+            <br>
+        </div>
+      </div>
+        
+        <!-- LEVEL 2.3 -->
+        <div id="Level2.3" style="display: none">
+          <div class="radio-buuton-header">
+              
+          </div>
+          <div class="radio-buuton-header">
+              <p class="p2" ><font size=5><b> <u>Infrastructure and Virtualization & Network Security:</u></b></font></p>
+          </div>
+          <div class="sourceStation-and-destinationStaion">
+
+           <p>  </i>Do you want the network security of the cloud provider to be?
+            <i class="fa fa-question-circle" ></i></p> 
+           <select name="weight" id="source" required class="form-select">
+                  
+                  <optgroup label="weight">
+                  <option value="Strong">Strong</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Weak">Weak</option>
+                  </optgroup>
+              </select>
+              <br>
+              <p>Do you want the policy of the infrastructure of the cloud provider to be secured?
+               <i class="fa fa-question-circle" ></i></p> 
+          <select name="weight" id="source" required class="form-select">
+                  
+                  <optgroup label="weight">
+                  <option value="Strong">Strong</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Weak">Weak</option>
+                  </optgroup>
+              </select>      
+              <br>
+
+              <br>
+              <center>
+                <!-- <button class = "buttongreen" type="button" onclick="showSection('Level2.2')">Previous</button> -->
+                <button class = "buttongreen" type="submit">submit</button>
+              </center>
+              <br>
+          </div>
+        </div>
+        
+
                    
                 
 
     </form>
-    
-<!--/.Mask-->
-</header>
+</center>
+    <script>
+      function showSection(sectionID) {
+        // Hide all sections
+        document.getElementById('Level2.1').style.display = 'none';
+        document.getElementById('Level2.2').style.display = 'none';
+        document.getElementById('Level2.3').style.display = 'none';
+      
+        // Show the requested section
+        document.getElementById(sectionID).style.display = 'block';
+      }      
+    </script>      
 {% endblock %}
