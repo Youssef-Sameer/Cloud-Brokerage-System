@@ -3,7 +3,8 @@ from flask import Blueprint, render_template, request, redirect, session, url_fo
 import numpy as np
 from db import cursor
 from db import mydb
-from Model import model
+from level1 import level1form
+from level2 import level2form
 # from ADD_CSPSS import string_to_num
 
 my_blueprint = Blueprint('my_blueprint', __name__)
@@ -35,31 +36,17 @@ def forgetpassword():
 
 @my_blueprint.route('/level1', methods=['POST', 'GET'])
 def level1():
-    return model()
+    return level1form()
 
 @my_blueprint.route('/level2', methods=['POST', 'GET'])
 def level2():
-    return render_template('level2.html')
+    return level2form()
 
-@my_blueprint.route('/level2_2', methods=['POST', 'GET'])
-def level2_2():
-    return render_template('level2_2.html')
-
-@my_blueprint.route('/level2_3', methods=['POST', 'GET'])
-def level2_3():
-    return render_template('level2_3.html')
 
 @my_blueprint.route('/level3', methods=['POST', 'GET'])
 def level3():
     return render_template('level3.html')
 
-@my_blueprint.route('/level3-2', methods=['POST', 'GET'])
-def level3_2():
-    return render_template('level3_2.html')
-
-@my_blueprint.route('/level3_3', methods=['POST', 'GET'])
-def level3_3():
-    return render_template('level3_3.html')
 
 @my_blueprint.route('/login', methods=['POST', 'GET'])
 def login():
