@@ -70,11 +70,12 @@
           <li><a href="{{ url_for('my_blueprint.viewcsp') }}"> CSPS</a></li>
           
           
+          
           {% endif %}
           {% if session.user_type == "User" %}
           <li><a href="{{ url_for('my_blueprint.about') }}">About Us</a></li>
           <li><a href="{{ url_for('my_blueprint.contact') }}">Contact</a></li>
-          <li><a href="{{ url_for('my_blueprint.myprofile') }}">Profile</a></li>
+          <li><a href="{{ url_for('my_blueprint.myprofile') }}">Profile</a></li>  
           <li><a href="{{ url_for('my_blueprint.csp_request') }}">Request CSP form</a></li>
           
           {% endif %}

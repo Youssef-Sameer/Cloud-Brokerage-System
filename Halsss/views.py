@@ -133,6 +133,7 @@ def viewcsp():
     return render_template('admin_panel_view_csp.html',csps=csps)
 
 
+
 @my_blueprint.route('/result')
 def result():
     return render_template('result.html')
