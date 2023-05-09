@@ -132,11 +132,6 @@ def viewcsp():
     csps=cursor.fetchall()
     return render_template('admin_panel_view_csp.html',csps=csps)
 
-@my_blueprint.route('/viewadmins')
-def viewadmins():
-    cursor.execute("SELECT * FROM users WHERE user_type='Admin'")
-    admins=cursor.fetchall()
-    return render_template('admins.html',admins=admins)
 
 @my_blueprint.route('/result')
 def result():
