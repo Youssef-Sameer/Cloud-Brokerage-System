@@ -7,7 +7,7 @@ choice_map = {
     "Strong": 0.166,
     "Medium": 0.116,
     "Weak": 0.086,
-    "Yes": 1.0,
+    "Yes": 0,
     "No": 0,
     
 }
@@ -17,6 +17,7 @@ def level2form():
         # Read the criteria weights and choices from the form
         
         choices = request.form.getlist('choices')
+        print(choices)
 
         # Convert the choices to their corresponding numerical values
         choices_values = [choice_map[choice] for choice in choices]
