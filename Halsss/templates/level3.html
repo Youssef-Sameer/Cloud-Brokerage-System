@@ -17,28 +17,16 @@
 
              <p>  </i>Do you want data to be encrypted at rest?
               <i class="fa fa-question-circle" ></i></p> 
-             
-                    
-              <label >
-                
+              <label >            
                 <input   type="radio"  name="5" value="yes" onclick="showAdditionalQuestion()">
-                Yes
-               
+                Yes            
               </label>
-            
-            
-    
-               
               <label >
                 <input type="radio" name="5"  value="no" onclick="hideAdditionalQuestion()">
-                No
-                
-              </label>
-                
-              </div>
-        
+                No               
+              </label>               
+              </div>       
                 <br>
-
                 <div id="additional-question1" style="display:none;">
 
 
@@ -47,43 +35,31 @@
       
       <div class="sourceStation-and-destinationStaion">
       
-           <p >  </i>Which encryption algorithm do you prefer?
-       <i class="fa fa-question-circle" ></i></p> 
-      <select name="choices" id="source" required class="form-select">
-             
-             <optgroup label="choices">
-             <option value="Strong">RSA</option>
-             <option value="Medium">AES</option>
-             <option value="Weak">Triple-Des</option>
-      
-             
-             </optgroup>
-         </select>
+
     
-             <p >  </i>Which key size do you prefer?
+             <p >  </i>Which encryption algorithm do you prefer to use for generating cryptographic keys, and what key size do you want to use
          <i class="fa fa-question-circle" ></i></p> 
         <select name="choices" id="source" required class="form-select">
                
                <optgroup label="choices">
-               <option value="Strong">256</option>
-               <option value="Medium">512</option>
-               <option value="Weak">1024</option>
-        
-               
+               <option value="Triple-Des 56">Triple-Des 56</option>
+               <option value="AES 128">AES 128</option>
+               <option value="AES 256">AES 256</option>
                </optgroup>
            </select>
           </div>
           </div>
-      
-                <p>Do you want the key size of the encryption algorithm to be(Encryption at rest)
+                <p>Would you like to have the option to generate cryptographic keys using NIST protocols in your cryptographic software or application
                  <i class="fa fa-question-circle" ></i></p> 
-            <select name="choices" id="source" required class="form-select">
                     
-                    <optgroup label="choices">
-                    <option value="Strong">Strong</option>
-                    <option value="Medium">Medium</option>
-                    <option value="Weak">Weak</option>                  
-                    </optgroup>
+              <label >            
+                <input   type="radio"  name="5" value="yes" >
+                Yes            
+              </label>
+              <label >
+                <input type="radio" name="5"  value="no" >
+                No               
+              </label>   
                 </select>      
                 <br>
                 <br>
@@ -93,9 +69,13 @@
              <select name="choices" id="source" required class="form-select">
                      
                      <optgroup label="choices">
-                     <option value="Strong">Strong</option>
-                     <option value="Medium">Medium</option>
-                     <option value="Weak">Weak</option>                  
+                     <option value="Weekly">Weekly</option>
+                     <option value="Monthly">Monthly</option>
+                     <option value="Bi-Monthly">Bi-Monthly</option>
+                     <option value="Quarterly">Quarterly</option> 
+                     <option value="Annually">Annually</option> 
+                     <option value="biennial">biennial(Once every two years)</option>  
+
                      </optgroup>
                  </select>      
                  <br>
@@ -157,27 +137,17 @@
    
    <div class="sourceStation-and-destinationStaion">
    
-        <p >  </i>Which encryption algorithm do you prefer?
-    <i class="fa fa-question-circle" ></i></p> 
-   <select name="choices" id="source" required class="form-select">
-          
-          <optgroup label="choices">
-          <option value="Strong">RSA</option>
-          <option value="Medium">AES</option>
-          <option value="Weak">Triple-Des</option>
-   
-          
-          </optgroup>
-      </select>
  
-          <p >  </i>Which key size do you prefer?
+          <p >  </i>Which key size do you prefer to use for generating cryptographic keys
       <i class="fa fa-question-circle" ></i></p> 
      <select name="choices" id="source" required class="form-select">
             
             <optgroup label="choices">
-            <option value="Strong">256</option>
-            <option value="Medium">512</option>
-            <option value="Weak">1024</option>
+            <option value="2048">RSA 2048</option>
+            <option value="3072">RSA 3072</option>
+            <option value="4096">RSA 4096</option>
+            <option value="RSA+sha256">RSA+sha256</option>
+
      
             
             </optgroup>
@@ -189,65 +159,45 @@
              <br>
              
 
-             <p>How the data will be classified (sensitivity level)
+             <p>When classifying the sensitivity level of your data, what level of responsibility would you like to take on for this classification
                <i class="fa fa-question-circle" ></i></p> 
           <select name="choices" id="source" required class="form-select">
                   
                   <optgroup label="choices">
-                  <option value="Strong">Strong</option>
-                  <option value="Medium">Medium</option>
-                  <option value="Weak">Weak</option>                  
+                  <option value="solely responsible">solely responsible</option>
+                  <option value="shared responsible">share responsibility with the Cloud Service Provider (CSP)</option>
+                  <option value="CSP responsible">Cloud Service Provider (CSP) responsible</option>                  
                   </optgroup>
               </select>      
               <br>
               <br>
 
-
-              
-
-                <p>  </i>Is there data inventory
-                 <i class="fa fa-question-circle" ></i></p> 
-                
-                       
-                 <label >
+              <p>When conducting a data inventory, would you prefer to take sole responsibility for creating and maintaining it, or would you like to share responsibility with your Cloud Service Provider (CSP) or leave it all on the Cloud Service Provider (CSP)
+                <i class="fa fa-question-circle" ></i></p> 
+           <select name="choices" id="source" required class="form-select">
                    
-                   <input   type="radio"  name="5" value="yes" >
-                   Yes
-                  
-                 </label>
-              
-    
-                 <label >
-                   <input type="radio" name="5"  value="no" >
-                   No
-                   
-                 </label>
+            <optgroup label="choices">
+              <option value="solely responsible">solely responsible</option>
+              <option value="shared responsible">share responsibility with the Cloud Service Provider (CSP)</option>
+              <option value="CSP responsible">Cloud Service Provider (CSP) responsible</option>                  
+              </optgroup>
+               </select>      
+               <br>
+               <br>
 
-                 <br>
-              <br>
+               <p>When it comes to protecting sensitive data, would you prefer to take full responsibility for ensuring its high level of protection, or would you like to share responsibility with your Cloud Service Provider (CSP) or leave it all on the Cloud Service Provider (CSP)
+                <i class="fa fa-question-circle" ></i></p> 
+           <select name="choices" id="source" required class="form-select">
                    
-                 <p>  </i>Is sensitive data is highly protected
-                  <i class="fa fa-question-circle" ></i></p> 
-                 
-                        
-                  <label >
-                    
-                    <input   type="radio"  name="6" value="yes" >
-                    Yes
-                   
-                  </label>
-                
-                
-        
-                   
-                  <label >
-                    <input type="radio" name="6"  value="no" >
-                    No
-                    
-                  </label>
+            <optgroup label="choices">
+              <option value="solely responsible">solely responsible</option>
+              <option value="shared responsible">share responsibility with the Cloud Service Provider (CSP)</option>
+              <option value="CSP responsible">Cloud Service Provider (CSP) responsible</option>                  
+              </optgroup>
+               </select>      
+               <br>
+               <br>
 
-
-              
 
 
 
@@ -274,6 +224,41 @@
               <p class="p2" ><font size=5><b> <u>Infrastructure and Virtualization & Network Security:</u></b></font></p>
           </div>
           <div class="sourceStation-and-destinationStaion">
+
+            <p>  </i>is the organization's infrastructure and virtualization environment is secured?
+              <i class="fa fa-question-circle" ></i></p> 
+             
+                    
+              <label >
+                
+                <input   type="radio"  name="5" value="yes" >
+                Yes
+               
+              </label>
+           
+ 
+              <label >
+                <input type="radio" name="5"  value="no" >
+                No
+                
+              </label>
+
+              <br>
+           <br>
+                
+              <p>  </i>Is the organization's infrastructure and virtualization policies and procedures get updated at least annually
+               <i class="fa fa-question-circle" ></i></p> 
+               <select name="choices" id="source" required class="form-select">            
+               <optgroup label="choices">
+                <option value="Monthly">Monthly</option>
+                <option value="Quarterly">Quarterly</option> 
+                <option value="Half-Annually">Half-Annually</option>   
+                <option value="Annually">Annually</option> 
+                <option value="biennial">biennial(Once every two years)</option>  
+                </optgroup>
+            </select>
+<br>
+<br>
   
             <p>  </i>Do you want the Cloud provider's environments to be encypted
              <i class="fa fa-question-circle" ></i></p> 
@@ -327,66 +312,24 @@
      </div>
                </div>   
                <br>
-               
-  
                <p>How often do you want your network configuration to be reviewed
                  <i class="fa fa-question-circle" ></i></p> 
-            <select name="choices" id="source" required class="form-select">
-                    
-                    <optgroup label="choices">
-                    <option value="Strong">Strong</option>
-                    <option value="Medium">Medium</option>
-                    <option value="Weak">Weak</option>                  
-                    </optgroup>
-                </select>      
+                 <select name="choices" id="source" required class="form-select">            
+                  <optgroup label="choices">
+                   <option value="Monthly">Monthly</option>
+                   <option value="Quarterly">Quarterly</option> 
+                   <option value="Half-Annually">Half-Annually</option>   
+                   <option value="Annually">Annually</option> 
+                   <option value="biennial">biennial(Once every two years)</option>  
+                   </optgroup>
+               </select>      
                 <br>
                 <br>
   
   
                 
   
-                  <p>  </i>is the organization's infrastructure and virtualization environment is secured?
-                   <i class="fa fa-question-circle" ></i></p> 
                   
-                         
-                   <label >
-                     
-                     <input   type="radio"  name="5" value="yes" >
-                     Yes
-                    
-                   </label>
-                
-      
-                   <label >
-                     <input type="radio" name="5"  value="no" >
-                     No
-                     
-                   </label>
-  
-                   <br>
-                <br>
-                     
-                   <p>  </i>Is the organization's infrastructure and virtualization policies and procedures get updated at least annually
-                    <i class="fa fa-question-circle" ></i></p> 
-                   
-                          
-                    <label >
-                      
-                      <input   type="radio"  name="6" value="yes" >
-                      Yes
-                     
-                    </label>
-                  
-                  
-          
-                     
-                    <label >
-                      <input type="radio" name="6"  value="no" >
-                      No
-                      
-                    </label>
-  <br>
-  <br>
   <p>  </i>Is my computer network protected from attacks by implementation of security measures
     <i class="fa fa-question-circle" ></i></p> 
    
@@ -418,7 +361,8 @@
   
              
                <center>
-                 <button class = "buttongreen" type="button" onclick="showSection('Level3.3')">submit</button>
+               <button class = "buttongreen" type="submit">submit onclick="{{choices}}"</button>
+                 
   
                </center>
              </div>

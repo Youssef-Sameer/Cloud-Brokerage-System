@@ -5,6 +5,7 @@ from db import cursor
 from db import mydb
 from level1 import level1form
 from level2 import level2form
+from level3 import level3form
 # from ADD_CSPSS import string_to_num
 
 my_blueprint = Blueprint('my_blueprint', __name__)
@@ -41,6 +42,7 @@ def level1():
 @my_blueprint.route('/level2', methods=['POST', 'GET'])
 def level2():
     return level2form()
+
 
 
 @my_blueprint.route('/level3', methods=['POST', 'GET'])
