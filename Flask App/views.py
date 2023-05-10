@@ -47,7 +47,7 @@ def level2():
 
 @my_blueprint.route('/level3', methods=['POST', 'GET'])
 def level3():
-    return render_template('level3.html')
+    return level3form()
 
 
 @my_blueprint.route('/login', methods=['POST', 'GET'])

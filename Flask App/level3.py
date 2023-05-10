@@ -5,6 +5,26 @@ from db import performance_matrix3, alternatives
 # Define a dictionary that maps the string choices to their corresponding numerical values
 choice_map = {
     # change this
+    "yes":0.05,
+    "no":0,
+    "Triple-Des 56":0.01,
+    "AES 128":0.03,
+    "AES 256":0.05,
+    "Weekly":0.11,
+    "Monthly":0.09,
+    "Bi-Monthly":0.07,
+    "Quarterly":0.05,
+    "Annually":0.03,
+    "biennial":0.01,
+    "2048":0.01,
+    "3072":0.03,
+    "RSA+sha256":0.06,
+    "4096":0.09,
+    "solely responsible":0.03,
+    "shared responsible":0.06,
+    "CSP responsible":0.09,
+    
+    
     
 }
 
