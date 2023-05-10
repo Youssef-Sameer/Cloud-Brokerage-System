@@ -31,8 +31,9 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Role</th>
-                                <th>Delete</th>
                                 <th>Action</th>
+                                <th>Delete</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
@@ -43,9 +44,6 @@
                                     <td>{{ user[2] }}</td>
                                     <td>{{ user[4] }}</td>
                                     <td>
-                                        <a href="{{ url_for('my_blueprint.delete_user', user_id=user[0]) }}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                                    </td>
-                                    <td>
                                         {% if user[4] == 'Admin' %}
                                             <form method="POST" action="{{ url_for('my_blueprint.remove_admin', user_id=user[0]) }}">
                                                 <button class="btn btn-danger">Remove Admin</button>
@@ -55,6 +53,9 @@
                                                 <button class="btn btn-success">Add Admin</button>
                                             </form>
                                         {% endif %}
+                                    </td>
+                                    <td>
+                                        <a href="{{ url_for('my_blueprint.delete_user', user_id=user[0]) }}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                                     </td>
                                 </tr>
                             {% endfor %}

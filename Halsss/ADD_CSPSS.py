@@ -29,6 +29,7 @@ def upload():
     for i, row in enumerate(converted_rows):
         values_str = ",".join(str(val) for val in row)
         id = request.form['id{}'.format(i)] # get id from HTML form
+        print(values_str)
         query = f"UPDATE cloud_provider SET performance_score='{values_str}' WHERE id={id}"
         cursor.execute(query)
         mysql.commit()
