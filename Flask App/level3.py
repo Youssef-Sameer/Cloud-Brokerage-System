@@ -5,7 +5,7 @@ from db import performance_matrix3, alternatives
 # Define a dictionary that maps the string choices to their corresponding numerical values
 choice_map = {
     # change this
-    "yes":0.05,
+    "yes":0.06,
     "no":0,
     "Triple-Des 56":0.01,
     "AES 128":0.03,
