@@ -1,17 +1,17 @@
 from flask import Flask, render_template, request, url_for
 import numpy as np
 from db import performance_matrix3, alternatives
-
 # Define a dictionary that maps the string choices to their corresponding numerical values
 choice_map = {
     # change this
-    "yes":0.06,
-    "no":0,
+    "Yes":0.06,
+    "No":0,
     "Triple-Des 56":0.01,
     "AES 128":0.03,
     "AES 256":0.05,
     "Weekly":0.11,
     "Monthly":0.09,
+    "Half-Annually":0.07,
     "Bi-Monthly":0.07,
     "Quarterly":0.05,
     "Annually":0.03,

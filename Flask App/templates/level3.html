@@ -17,17 +17,15 @@
 
              <p>  </i>Do you want data to be encrypted at rest?
               <i class="fa fa-question-circle" ></i></p> 
-              <label >            
-                <input   type="radio"  name="5" value="yes" onclick="showAdditionalQuestion()">
-                Yes            
-              </label>
-              <label >
-                <input type="radio" name="5"  value="no" onclick="hideAdditionalQuestion()">
-                No               
-              </label>               
+              <select name="choices" id="source" required class="form-select">            
+                <optgroup label="choices">
+                 <option value="Yes">Yes</option>
+                 <option value="No">No</option> 
+                 </optgroup>
+             </select>              
               </div>       
                 <br>
-                <div id="additional-question1" style="display:none;">
+                <div id="additional-question1" style="display:block;">
 
 
                   
@@ -45,6 +43,7 @@
                <option value="Triple-Des 56">Triple-Des 56</option>
                <option value="AES 128">AES 128</option>
                <option value="AES 256">AES 256</option>
+               <option value="No">No</option>
                </optgroup>
            </select>
           </div>
@@ -52,14 +51,12 @@
                 <p>Would you like to have the option to generate cryptographic keys using NIST protocols in your cryptographic software or application
                  <i class="fa fa-question-circle" ></i></p> 
                     
-              <label >            
-                <input   type="radio"  name="4" value="yes" >
-                Yes            
-              </label>
-              <label >
-                <input type="radio" name="4"  value="no" >
-                No               
-              </label>   
+                 <select name="choices" id="source" required class="form-select">            
+                  <optgroup label="choices">
+                   <option value="Yes">Yes</option>
+                   <option value="No">No</option> 
+                   </optgroup>
+               </select>  
                 </select>      
                 <br>
                 <br>
@@ -104,37 +101,47 @@
             <p class="p2" ><font size=5><b> <u>Data Security and Privacy Management:</u></b></font></p>
         </div>
         <div class="sourceStation-and-destinationStaion">
+          <p>When conducting a data inventory, would you prefer to take sole responsibility for creating and maintaining it, or would you like to share responsibility with your Cloud Service Provider (CSP) or leave it all on the Cloud Service Provider (CSP)
+            <i class="fa fa-question-circle" ></i></p> 
+       <select name="choices" id="source" required class="form-select">
+               
+        <optgroup label="choices">
+          <option value="solely responsible">solely responsible</option>
+          <option value="shared responsible">share responsibility with the Cloud Service Provider (CSP)</option>
+          <option value="CSP responsible">Cloud Service Provider (CSP) responsible</option>                  
+          </optgroup>
+           </select>      
+           <br>
+           <br>
+           <p>When classifying the sensitivity level of your data, what level of responsibility would you like to take on for this classification
+            <i class="fa fa-question-circle" ></i></p> 
+       <select name="choices" id="source" required class="form-select">
+               
+               <optgroup label="choices">
+               <option value="solely responsible">solely responsible</option>
+               <option value="shared responsible">share responsibility with the Cloud Service Provider (CSP)</option>
+               <option value="CSP responsible">Cloud Service Provider (CSP) responsible</option>                  
+               </optgroup>
+           </select>      
+           <br>
+           <br>
 
           <p>  </i>is the data encrypted at transit
            <i class="fa fa-question-circle" ></i></p> 
           
                  
-           <label >
-             
-             <input   type="radio"  name="4" value="yes" onclick="showAdditionalQuestion1()">
-             Yes
-            
-           </label>
-         
-         
- 
-            
-           <label >
-             <input type="radio" name="4"  value="no" onclick="hideAdditionalQuestion1()">
-             No
-             
-           </label>
+           <select name="choices" id="source" required class="form-select">            
+            <optgroup label="choices">
+             <option value="Yes">Yes</option>
+             <option value="No">No</option> 
+             </optgroup>
+         </select> 
              
            </div>
      
              <br>
 
-             <div id="additional-question" style="display:none;">
-
-
-               
-   
-   
+             <div id="additional-question" style="display:block;">
    <div class="sourceStation-and-destinationStaion">
    
  
@@ -147,6 +154,7 @@
             <option value="3072">RSA 3072</option>
             <option value="4096">RSA 4096</option>
             <option value="RSA+sha256">RSA+sha256</option>
+            <option value="No">No</option>
 
      
             
@@ -158,32 +166,6 @@
                   
              <br>
              
-
-             <p>When classifying the sensitivity level of your data, what level of responsibility would you like to take on for this classification
-               <i class="fa fa-question-circle" ></i></p> 
-          <select name="choices" id="source" required class="form-select">
-                  
-                  <optgroup label="choices">
-                  <option value="solely responsible">solely responsible</option>
-                  <option value="shared responsible">share responsibility with the Cloud Service Provider (CSP)</option>
-                  <option value="CSP responsible">Cloud Service Provider (CSP) responsible</option>                  
-                  </optgroup>
-              </select>      
-              <br>
-              <br>
-
-              <p>When conducting a data inventory, would you prefer to take sole responsibility for creating and maintaining it, or would you like to share responsibility with your Cloud Service Provider (CSP) or leave it all on the Cloud Service Provider (CSP)
-                <i class="fa fa-question-circle" ></i></p> 
-           <select name="choices" id="source" required class="form-select">
-                   
-            <optgroup label="choices">
-              <option value="solely responsible">solely responsible</option>
-              <option value="shared responsible">share responsibility with the Cloud Service Provider (CSP)</option>
-              <option value="CSP responsible">Cloud Service Provider (CSP) responsible</option>                  
-              </optgroup>
-               </select>      
-               <br>
-               <br>
 
                <p>When it comes to protecting sensitive data, would you prefer to take full responsibility for ensuring its high level of protection, or would you like to share responsibility with your Cloud Service Provider (CSP) or leave it all on the Cloud Service Provider (CSP)
                 <i class="fa fa-question-circle" ></i></p> 
@@ -245,27 +227,18 @@
              <i class="fa fa-question-circle" ></i></p> 
             
                    
-             <label >
-               
-               <input   type="radio"  name="10" value="yes" onclick="hideAdditionalQuestion2()">
-               Yes
-              
-             </label>
-           
-           
-   
-              
-             <label >
-               <input type="radio" name="10"  value="no" onclick="showAdditionalQuestion2()">
-               No
-               
-             </label>
+             <select name="choices" id="source" required class="form-select">            
+              <optgroup label="choices">
+               <option value="Yes">Yes</option>
+               <option value="No">No</option> 
+               </optgroup>
+           </select> 
                
              </div>
        
                <br>
   
-               <div id="additional-question2" style="display:none;">
+               <div id="additional-question2" style="display:block;">
   
   
                  
@@ -277,19 +250,12 @@
         <i class="fa fa-question-circle" ></i></p> 
        
               
-        <label >
-          
-          <input   type="radio"  name="11" value="yes" >
-          Yes
-         
-        </label>
-     
-
-        <label >
-          <input type="radio" name="11"  value="no" >
-          No
-          
-        </label>
+        <select name="choices" id="source" required class="form-select">            
+          <optgroup label="choices">
+           <option value="Yes">Yes</option>
+           <option value="No">No</option> 
+           </optgroup>
+       </select> 
      </div>
                </div>   
                <br>
@@ -315,21 +281,12 @@
     <i class="fa fa-question-circle" ></i></p> 
    
           
-    <label >
-      
-      <input   type="radio"  name="13" value="yes" >
-      Yes
-     
-    </label>
-  
-  
-
-     
-    <label >
-      <input type="radio" name="13"  value="no" >
-      No
-      
-    </label>
+    <select name="choices" id="source" required class="form-select">            
+      <optgroup label="choices">
+       <option value="Yes">Yes</option>
+       <option value="No">No</option> 
+       </optgroup>
+   </select> 
   
               <br>
               <br>  
