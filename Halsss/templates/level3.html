@@ -1,102 +1,443 @@
 {% extends "base.html" %} {% block title%}Login{% endblock %} {% block content
   %}
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
+  <br><br><br><br>
+  <div class="header">
+    <h2><font size=6>Answer some questions</font></h2>
+  </div>
+  <!-- LEVEL 3.1 -->
   <center>
-    <div class="header">
-
-        <h1><b> Answer some questions </b></h1>
-    </div>
-
-    <form name="bookticket" action = "" method="post"  onsubmit="return validateform()" >
-        <div class="user-input">
-
-           
-                       <div class="radio-buuton-header">
-                <p class="p2" ><font size=5><b> <u>Cryptography,Encryption&Key Management:</u></b></font></p>
+    <form name="Level3" action = "" method="post">
+        <div  id="Level3.1">
+            <div class="radio-buuton-header">             
+            </div>
+            <div class="radio-buuton-header">
+                <p class="p2"><font size=5><b> <u>Cryptography,Encryption&Key Management:</u></b></font></p>
             </div>
             <div class="sourceStation-and-destinationStaion">
 
+             <p>  </i>Do you want data to be encrypted at rest?
+              <i class="fa fa-question-circle" ></i></p> 
              
-             <p>  </i>Do you want data to be encrypted at rest
-              <i class="fa fa-question-circle"></i></p> 
-  <label>
-    <div class="form-check">
-    <input   type="radio"  name="1" value="yes" onclick="showAdditionalQuestion()">
-    Yes
-  </label>
-</div>
-   <div class="form-check">
-  <label>
-    <input type="radio" name="1"  value="no" onclick="hideAdditionalQuestion()">
-    No
-    
-  </label>
-   
-  </div>
-  <div id="additional-question1" style="display:none;">
-
-    <p>Which encryption algorithm you prefer? </p>
-    
-                    <select name="choices" id="source" required>
                     
-                        <optgroup label="choices">
-                        <option value="RSA">RSA</option>
-                    <option value="AES">AES</option>
-                    <option value="Triple-Des">Triple-Des</option>
-                         </optgroup>
-                        </select>
-              
-                        <p >Which key size you prefer?  </p> 
-                        <select name="choices" id="source" required>
-                        <optgroup label="choices">
-                        <option value="256">256</option>
-                        <option value="512">512</option>
-                        <option value="1024">1024</option>
-                        <optgroup label="choices">    
+              <label >
+                
+                <input   type="radio"  name="5" value="yes" onclick="showAdditionalQuestion()">
+                Yes
+               
+              </label>
+            
+            
+    
+               
+              <label >
+                <input type="radio" name="5"  value="no" onclick="hideAdditionalQuestion()">
+                No
+                
+              </label>
+                
+              </div>
+        
+                <br>
+
+                <div id="additional-question1" style="display:none;">
+
+
+                  
+      
+      
+      <div class="sourceStation-and-destinationStaion">
+      
+           <p >  </i>Which encryption algorithm do you prefer?
+       <i class="fa fa-question-circle" ></i></p> 
+      <select name="choices" id="source" required class="form-select">
+             
+             <optgroup label="choices">
+             <option value="Strong">RSA</option>
+             <option value="Medium">AES</option>
+             <option value="Weak">Triple-Des</option>
+      
+             
+             </optgroup>
+         </select>
+    
+             <p >  </i>Which key size do you prefer?
+         <i class="fa fa-question-circle" ></i></p> 
+        <select name="choices" id="source" required class="form-select">
+               
+               <optgroup label="choices">
+               <option value="Strong">256</option>
+               <option value="Medium">512</option>
+               <option value="Weak">1024</option>
+        
+               
+               </optgroup>
+           </select>
+          </div>
+          </div>
+      
+                <p>Do you want the key size of the encryption algorithm to be(Encryption at rest)
+                 <i class="fa fa-question-circle" ></i></p> 
+            <select name="choices" id="source" required class="form-select">
+                    
+                    <optgroup label="choices">
+                    <option value="Strong">Strong</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Weak">Weak</option>                  
+                    </optgroup>
+                </select>      
+                <br>
+                <br>
+
+                <p>How often is the keys rotated
+                  <i class="fa fa-question-circle" ></i></p> 
+             <select name="choices" id="source" required class="form-select">
+                     
+                     <optgroup label="choices">
+                     <option value="Strong">Strong</option>
+                     <option value="Medium">Medium</option>
+                     <option value="Weak">Weak</option>                  
                      </optgroup>
-                    </select>
-                </div>
-</div>
+                 </select>      
+                 <br>
+                 <br>
 
 
-                <div class="sourceStation-and-destinationStaion">
-</div>
-             <p>Do you want the key inventory management system to track, and reports changes made to cryptographic
-materials (encryption tools)?
-<i class="fa fa-question-circle"></i></p> 
-  <label>
-    <div class="form-check">
-    <input type="radio" name="4" value="yes" >
-    <font>Yes</font>
-  </label>
-</div>
-   <div class="form-check">
-  <label>
-    <input type="radio"  name="4"value="no" >
-    No
-    
-  </label>
 
 
+
+
+
+              
+                <center>
+                  <button class = "buttongreen" type="button" onclick="showSection('Level3.2')">Next</button>
  
+                </center>
+              </div>
+            </div>
+        </div>
+      <br>
+      <!-- LEVEL 3.2 -->
+      <div  id="Level3.2" style="display: none">
 
-    </div>
-    <center>
-      <a href="{{ url_for('my_blueprint.level3_2') }}" class="buttongreen">Next</a> 
-    </center>
-    </form>
-</center>
+        
+        <div class="radio-buuton-header">
+            <p class="p2" ><font size=5><b> <u>Data Security and Privacy Management:</u></b></font></p>
+        </div>
+        <div class="sourceStation-and-destinationStaion">
+
+          <p>  </i>is the data encrypted at transit
+           <i class="fa fa-question-circle" ></i></p> 
+          
+                 
+           <label >
+             
+             <input   type="radio"  name="4" value="yes" onclick="showAdditionalQuestion1()">
+             Yes
+            
+           </label>
+         
+         
+ 
+            
+           <label >
+             <input type="radio" name="4"  value="no" onclick="hideAdditionalQuestion1()">
+             No
+             
+           </label>
+             
+           </div>
+     
+             <br>
+
+             <div id="additional-question" style="display:none;">
+
+
+               
+   
+   
+   <div class="sourceStation-and-destinationStaion">
+   
+        <p >  </i>Which encryption algorithm do you prefer?
+    <i class="fa fa-question-circle" ></i></p> 
+   <select name="choices" id="source" required class="form-select">
+          
+          <optgroup label="choices">
+          <option value="Strong">RSA</option>
+          <option value="Medium">AES</option>
+          <option value="Weak">Triple-Des</option>
+   
+          
+          </optgroup>
+      </select>
+ 
+          <p >  </i>Which key size do you prefer?
+      <i class="fa fa-question-circle" ></i></p> 
+     <select name="choices" id="source" required class="form-select">
+            
+            <optgroup label="choices">
+            <option value="Strong">256</option>
+            <option value="Medium">512</option>
+            <option value="Weak">1024</option>
+     
+            
+            </optgroup>
+        </select>
+       </div>
+       </div>
+   
+                  
+             <br>
+             
+
+             <p>How the data will be classified (sensitivity level)
+               <i class="fa fa-question-circle" ></i></p> 
+          <select name="choices" id="source" required class="form-select">
+                  
+                  <optgroup label="choices">
+                  <option value="Strong">Strong</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Weak">Weak</option>                  
+                  </optgroup>
+              </select>      
+              <br>
+              <br>
+
+
+              
+
+                <p>  </i>Is there data inventory
+                 <i class="fa fa-question-circle" ></i></p> 
+                
+                       
+                 <label >
+                   
+                   <input   type="radio"  name="5" value="yes" >
+                   Yes
+                  
+                 </label>
+              
     
-<!--/.Mask-->
-</header>
+                 <label >
+                   <input type="radio" name="5"  value="no" >
+                   No
+                   
+                 </label>
 
-   <script>
-  function showAdditionalQuestion() {
+                 <br>
+              <br>
+                   
+                 <p>  </i>Is sensitive data is highly protected
+                  <i class="fa fa-question-circle" ></i></p> 
+                 
+                        
+                  <label >
+                    
+                    <input   type="radio"  name="6" value="yes" >
+                    Yes
+                   
+                  </label>
+                
+                
+        
+                   
+                  <label >
+                    <input type="radio" name="6"  value="no" >
+                    No
+                    
+                  </label>
+
+
+              
+
+
+
+
+
+
+
+           
+             <center>
+               <button class = "buttongreen" type="button" onclick="showSection('Level3.3')">Next</button>
+
+             </center>
+           </div>
+          </div>
+           </form>
+         
+   <br>
+    
+        <!-- LEVEL 3.3 -->
+        <div  id="Level3.3" style="display: none">
+
+        
+          <div class="radio-buuton-header">
+              <p class="p2" ><font size=5><b> <u>Infrastructure and Virtualization & Network Security:</u></b></font></p>
+          </div>
+          <div class="sourceStation-and-destinationStaion">
+  
+            <p>  </i>Do you want the Cloud provider's environments to be encypted
+             <i class="fa fa-question-circle" ></i></p> 
+            
+                   
+             <label >
+               
+               <input   type="radio"  name="10" value="yes" onclick="hideAdditionalQuestion2()">
+               Yes
+              
+             </label>
+           
+           
+   
+              
+             <label >
+               <input type="radio" name="10"  value="no" onclick="showAdditionalQuestion2()">
+               No
+               
+             </label>
+               
+             </div>
+       
+               <br>
+  
+               <div id="additional-question2" style="display:none;">
+  
+  
+                 
+     
+     
+     <div class="sourceStation-and-destinationStaion">
+     
+      <p>  </i>Do you want the Cloud provider's environments to be monitored
+        <i class="fa fa-question-circle" ></i></p> 
+       
+              
+        <label >
+          
+          <input   type="radio"  name="11" value="yes" >
+          Yes
+         
+        </label>
+     
+
+        <label >
+          <input type="radio" name="11"  value="no" >
+          No
+          
+        </label>
+     </div>
+               </div>   
+               <br>
+               
+  
+               <p>How often do you want your network configuration to be reviewed
+                 <i class="fa fa-question-circle" ></i></p> 
+            <select name="choices" id="source" required class="form-select">
+                    
+                    <optgroup label="choices">
+                    <option value="Strong">Strong</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Weak">Weak</option>                  
+                    </optgroup>
+                </select>      
+                <br>
+                <br>
+  
+  
+                
+  
+                  <p>  </i>is the organization's infrastructure and virtualization environment is secured?
+                   <i class="fa fa-question-circle" ></i></p> 
+                  
+                         
+                   <label >
+                     
+                     <input   type="radio"  name="5" value="yes" >
+                     Yes
+                    
+                   </label>
+                
+      
+                   <label >
+                     <input type="radio" name="5"  value="no" >
+                     No
+                     
+                   </label>
+  
+                   <br>
+                <br>
+                     
+                   <p>  </i>Is the organization's infrastructure and virtualization policies and procedures get updated at least annually
+                    <i class="fa fa-question-circle" ></i></p> 
+                   
+                          
+                    <label >
+                      
+                      <input   type="radio"  name="6" value="yes" >
+                      Yes
+                     
+                    </label>
+                  
+                  
+          
+                     
+                    <label >
+                      <input type="radio" name="6"  value="no" >
+                      No
+                      
+                    </label>
+  <br>
+  <br>
+  <p>  </i>Is my computer network protected from attacks by implementation of security measures
+    <i class="fa fa-question-circle" ></i></p> 
+   
+          
+    <label >
+      
+      <input   type="radio"  name="13" value="yes" >
+      Yes
+     
+    </label>
+  
+  
+
+     
+    <label >
+      <input type="radio" name="13"  value="no" >
+      No
+      
+    </label>
+  
+              <br>
+              <br>  
+  
+  
+  
+  
+  
+  
+  
+             
+               <center>
+                 <button class = "buttongreen" type="button" onclick="showSection('Level3.3')">submit</button>
+  
+               </center>
+             </div>
+            </div>
+             </form>
+           
+     <br>
+    <script>
+      function showSection(sectionID) {
+        // Hide all sections
+        document.getElementById('Level3.1').style.display = 'none';
+        document.getElementById('Level3.2').style.display = 'none';
+        document.getElementById('Level3.3').style.display = 'none';
+      
+        // Show the requested section
+        document.getElementById(sectionID).style.display = 'block';
+      }      
+
+      function showAdditionalQuestion() {
     document.getElementById("additional-question1").style.display = "block";
   }
 
@@ -119,6 +460,7 @@ materials (encryption tools)?
   function hideAdditionalQuestion2() {
     document.getElementById("additional-question2").style.display = "none";
   }
-</script>
 
-{%endblock%}
+
+    </script>      
+{% endblock %}
