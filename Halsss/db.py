@@ -14,7 +14,17 @@ cursor = mydb.cursor()
 performance_matrix_query = "SELECT performance_score FROM level1"
 cursor.execute(performance_matrix_query)
 performance_matrix_result = cursor.fetchall()
-performance_matrix = np.array([list(map(float, row[0].split(','))) for row in performance_matrix_result])
+performance_matrix1 = np.array([list(map(float, row[0].split(','))) for row in performance_matrix_result])
+
+performance_matrix_query = "SELECT performance_score FROM level2"
+cursor.execute(performance_matrix_query)
+performance_matrix_result = cursor.fetchall()
+performance_matrix2 = np.array([list(map(float, row[0].split(','))) for row in performance_matrix_result])
+
+performance_matrix_query = "SELECT performance_score FROM cloud_provider"
+cursor.execute(performance_matrix_query)
+performance_matrix_result = cursor.fetchall()
+performance_matrix3 = np.array([list(map(float, row[0].split(','))) for row in performance_matrix_result])
 
 # Read in the list of alternatives from the MySQL database
 alternatives_query = "SELECT csp_name FROM level1"

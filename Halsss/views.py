@@ -3,7 +3,8 @@ from flask import Blueprint, render_template, request, redirect, session, url_fo
 import numpy as np
 from db import cursor
 from db import mydb
-from Model import model
+from level1 import level1form
+from level2 import level2form
 # from ADD_CSPSS import string_to_num
 
 my_blueprint = Blueprint('my_blueprint', __name__)
@@ -35,31 +36,17 @@ def forgetpassword():
 
 @my_blueprint.route('/level1', methods=['POST', 'GET'])
 def level1():
-    return model()
+    return level1form()
 
 @my_blueprint.route('/level2', methods=['POST', 'GET'])
 def level2():
-    return render_template('level2.html')
+    return level2form()
 
-@my_blueprint.route('/level2_2', methods=['POST', 'GET'])
-def level2_2():
-    return render_template('level2_2.html')
-
-@my_blueprint.route('/level2_3', methods=['POST', 'GET'])
-def level2_3():
-    return render_template('level2_3.html')
 
 @my_blueprint.route('/level3', methods=['POST', 'GET'])
 def level3():
     return render_template('level3.html')
 
-@my_blueprint.route('/level3-2', methods=['POST', 'GET'])
-def level3_2():
-    return render_template('level3_2.html')
-
-@my_blueprint.route('/level3_3', methods=['POST', 'GET'])
-def level3_3():
-    return render_template('level3_3.html')
 
 @my_blueprint.route('/login', methods=['POST', 'GET'])
 def login():
@@ -135,10 +122,6 @@ def adminpanel():
     users = cursor.fetchall()
     return render_template('admin_panel_users.html',users=users)
 
-@my_blueprint.route('/addadmin')
-def addadmin():
-    return render_template('add_admin.html')
-
 @my_blueprint.route('/addcsp')
 def addcsp():
     return render_template('add_csp.html')
@@ -149,11 +132,7 @@ def viewcsp():
     csps=cursor.fetchall()
     return render_template('admin_panel_view_csp.html',csps=csps)
 
-@my_blueprint.route('/viewadmins')
-def viewadmins():
-    cursor.execute("SELECT * FROM users WHERE user_type='Admin'")
-    admins=cursor.fetchall()
-    return render_template('admins.html',admins=admins)
+
 
 @my_blueprint.route('/result')
 def result():
@@ -162,4 +141,25 @@ def result():
 @my_blueprint.route('/csp_request', methods=['POST', 'GET'])
 def csp_request():
     return render_template('csp_request.html')
+
+@my_blueprint.route('/add_admin/<int:user_id>', methods=['POST'])
+def add_admin(user_id):
+    cursor.execute("UPDATE users SET user_type='Admin' WHERE id=%s", (user_id,))
+    mydb.commit()
+    return redirect(url_for('my_blueprint.adminpanel'))
+
+@my_blueprint.route('/remove_admin/<int:user_id>', methods=['POST'])
+def remove_admin(user_id):
+    cursor.execute("UPDATE users SET user_type='User' WHERE id=%s", (user_id,))
+    mydb.commit()
+    return redirect(url_for('my_blueprint.adminpanel'))
+
+@my_blueprint.route('/delete_user/<int:user_id>', methods=['GET', 'POST'])
+def delete_user(user_id):
+    cursor.execute("DELETE FROM users WHERE id=%s", (user_id,))
+    mydb.commit()
+    return redirect(url_for('my_blueprint.adminpanel'))
+
+
+
 

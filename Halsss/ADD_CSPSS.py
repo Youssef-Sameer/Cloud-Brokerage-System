@@ -1,40 +1,70 @@
-from views import performance_matrix,alternatives
-from flask import render_template,request
-import numpy as np
+from flask import Flask, render_template, request
+import csv
+from db import mysql
+from db import cursor
 
-def allooo():
-    criteria = ["Data Encryption at rest","Encryption Algorithm","Key size","Key Generation","Key Inventory Management","Data Inventory","Data Classification","Data encryption in Transit","Encryption in Transit algorithm(RSA)","Key size","Data Retention and Deletion","Sensitive Data Protection","Infrastructure and Virtualization Security Policy and Procedures","Network Security 1","Network Security 2","Network Security 3","Network Security 4","Network Defense"]
-    if request.method == 'POST':
-        # Read the criteria weights from the form
-        weights = np.array(request.form.getlist('weight')).astype(float)
+app = Flask(__name__)
 
-        # Normalize the performance matrix
-        normalized_matrix = performance_matrix / performance_matrix.sum(axis=0)
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    return render_template('index.html')
 
-        # Calculate the weighted normalized matrix
-        weighted_matrix = normalized_matrix * weights
+@app.route('/upload', methods=['POST'])
+def upload():
+    file = request.files['csv_data']
+    if not file:
+        return render_template('index.html', error='No file selected')
+    stream = stream.StringIO(file.stream.read().decode("UTF8"), newline=None)
+    csv_input = csv.reader(stream)
+    header = next(csv_input)
+    rows = []
+    for row in csv_input:
+        rows.append(row)
+    # convert rows to list of lists of converted values
+    converted_rows = []
+    for row in rows:
+        converted_row = string_to_num(row)
+        converted_rows.append(converted_row)
+    # insert converted rows into database
+    for i, row in enumerate(converted_rows):
+        values_str = ",".join(str(val) for val in row)
+        id = request.form['id{}'.format(i)] # get id from HTML form
+        print(values_str)
+        query = f"UPDATE cloud_provider SET performance_score='{values_str}' WHERE id={id}"
+        cursor.execute(query)
+        mysql.commit()
+    cursor.close()
+    mysql.close()
+    return render_template('index.html', success='CSV file successfully uploaded and saved to database.')
 
-        # Calculate the ideal and negative ideal solutions
-        ideal_solution = np.max(weighted_matrix, axis=0)
-        negative_ideal_solution = np.min(weighted_matrix, axis=0)
+def string_to_num(input_list):
+    output_list = []
+    for string in input_list:
+        string = string.replace("\xa0", "")
+        if string.lower() in ["yes", "aes", "aes256"]:
+            output_list.append(1)
+        elif string.lower() in ["no", "not mentioned"]:
+            output_list.append(0)
+        elif string.lower() in ["2048", "yes-annually"]:
+            output_list.append(0.2)
+        elif string.lower() in ["csp-responsibility", "56"]:
+            output_list.append(0.3)
+        elif string.lower() in ["sha256", "yes-bi-annually"]:
+            output_list.append(0.4)
+        elif string.lower() in ["3des", "rsa"]:
+            output_list.append(0.5)
+        elif string.lower() in ["csc-responsibility", "128", "3072", "yes-half-annually"]:
+            output_list.append(0.6)
+        elif string.lower() in ["sha384", "yes-quarterly"]:
+            output_list.append(0.8)
+        elif string.lower() in ["shared csp and csc responsibility", "256"]:
+            output_list.append(0.9)
+        else:
+            try:
+                output_list.append(float(string))
+            except ValueError:
+                output_list.append(string)
+    return output_list
 
-        # Calculate the Euclidean distances of each alternative to the ideal and negative ideal solutions
-        d_i = np.sqrt(np.sum((weighted_matrix - ideal_solution) ** 2, axis=1))
-        d_j = np.sqrt(np.sum((weighted_matrix - negative_ideal_solution) ** 2, axis=1))
-
-        # Calculate the relative closeness of each alternative to the ideal solution
-        relative_closeness = d_j / (d_i + d_j)
-
-        # Rank the alternatives by their relative closeness to the ideal solution
-        rankings = np.argsort(relative_closeness)[::-1]
-
-        # Pass the length of the alternatives list to the results page
-        num_alternatives = len(alternatives)
-
-        # Return the rankings and length to the results page
-        return render_template('results.html', alternatives=alternatives, rankings=rankings, num_alternatives=num_alternatives, relative_closeness=np.round(relative_closeness, 5))
-
-    else:
-        # Render the form page
-        return render_template('form.html', criteria=criteria)
-    
+if __name__ == '__main__':
+    app.run(debug=True)
