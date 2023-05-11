@@ -201,17 +201,22 @@ def editprofile():
     if request.method == 'POST':
         # Retrieve the updated username from the form data
         username = request.form.get('username')
-
+        new_password = request.form.get('new_password')
+        old_password = request.form.get('current_password')
+        
         # Update the user's profile in the database
-        cursor.execute("UPDATE users SET user_name = %s WHERE id = %s", (username, user_id,))
-        mydb.commit()
-
-        # Render the updated profile page with the new username
-        return redirect(url_for('my_blueprint.myprofile'))
-
+        cursor.execute("SELECT user_password FROM users WHERE id = %s", (user_id,))
+        current_password=cursor.fetchone()
+        if current_password[0]!=old_password:
+            error = 'Current password is wrong'
+            return render_template('edit_profile.html',userdata=userdata)
+        else:
+            cursor.execute("UPDATE users SET user_name = %s ,user_password = %s WHERE id = %s", (username, new_password, user_id,))
+            mydb.commit()
+            return redirect(url_for('my_blueprint.myprofile'))
     else:
         # Render the edit profile page with the current username
-        return render_template('edit_profile.html', userdata=userdata)
+        return render_template('edit_profile.html',userdata=userdata)
 
 
 
