@@ -2,10 +2,10 @@ import mysql.connector
 import numpy as np
 
 mydb = mysql.connector.connect(
-  host="localhost",
-  user="root",
-  password="",
-  database="cab"
+  host="sql7.freesqldatabase.com",
+  user="sql7617565",
+  password="E4eMPK6xlF",
+  database="sql7617565"
 )
 # Create a cursor to execute SQL statements
 cursor = mydb.cursor()

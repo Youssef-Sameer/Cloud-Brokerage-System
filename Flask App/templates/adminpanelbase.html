@@ -68,6 +68,7 @@
           {% if session.user_type == "Admin" %}
           <li><a href="{{ url_for('my_blueprint.adminpanel') }}" class="active">Users</a></li>
           <li><a href="{{ url_for('my_blueprint.viewcsp') }}"> CSPS</a></li>
+          <li><a href="{{ url_for('my_blueprint.review') }}"> review</a></li>
           
           
           {% endif %}

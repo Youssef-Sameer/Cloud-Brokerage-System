@@ -29,11 +29,26 @@ def about():
 
 @my_blueprint.route('/contact', methods=['POST', 'GET'])
 def contact():
-    return render_template('contact.html')
+    if request.method == 'POST':
+        # Get form data
+        name = request.form['name']
+        email = request.form['email']
+        subject = request.form['subject']
+        message = request.form['message']
+
+        # Insert new contact into database
+        cursor.execute("INSERT INTO contact (name, email, subject, message) VALUES (%s, %s, %s, %s)", (name, email, subject, message))
+        mydb.commit()
+
+        # Redirect to thank you page
+        return render_template('thankyou.html')
+    else:
+        return render_template('contact.html')
+
 
 @my_blueprint.route('/forgetpassword', methods=['POST', 'GET'])
 def forgetpassword():
-    return render_template('forgetpassword.html')
+    return render_template('review.html')
 
 @my_blueprint.route('/level1', methods=['POST', 'GET'])
 def level1():
@@ -123,6 +138,11 @@ def adminpanel():
     cursor.execute("SELECT * FROM users")
     users = cursor.fetchall()
     return render_template('admin_panel_users.html',users=users)
+@my_blueprint.route('/review')
+def review():
+    cursor.execute("SELECT * FROM contact")
+    users = cursor.fetchall()
+    return render_template('review.html',users=users)
 
 @my_blueprint.route('/addcsp')
 def addcsp():
@@ -161,6 +181,12 @@ def delete_user(user_id):
     cursor.execute("DELETE FROM users WHERE id=%s", (user_id,))
     mydb.commit()
     return redirect(url_for('my_blueprint.adminpanel'))
+@my_blueprint.route('/delete_contact/<int:contact_id>', methods=['GET', 'POST'])
+def delete_contact(contact_id):
+    cursor.execute("DELETE FROM contact WHERE id=%s", (contact_id,))
+    mydb.commit()
+    return redirect(url_for('my_blueprint.review'))
+
 
 
 
