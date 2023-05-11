@@ -5,10 +5,8 @@ from db import performance_matrix2, alternatives
 # Define a dictionary that maps the string choices to their corresponding numerical values
 choice_map = {
     "Strong": 0.166,
-    "Medium": 0.116,
-    "Weak": 0.086,
-    "Yes": 0,
-    "No": 0,
+    "Medium": 0.1,
+    "Weak": 0.05,
     
 }
 

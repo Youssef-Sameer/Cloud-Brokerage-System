@@ -186,6 +186,35 @@ def delete_contact(contact_id):
     cursor.execute("DELETE FROM contact WHERE id=%s", (contact_id,))
     mydb.commit()
     return redirect(url_for('my_blueprint.review'))
+@my_blueprint.route('/editprofile', methods=['POST', 'GET'])
+def editprofile():
+    # Check if user is logged in
+    if 'user_id' not in session:
+        flash('Please log in first!', 'error')
+        return redirect(url_for('my_blueprint.login'))
+
+    # Get the current user's data
+    user_id = session['user_id']
+    cursor.execute("SELECT * FROM users WHERE id = %s", (user_id,))
+    userdata = cursor.fetchone()
+
+    if request.method == 'POST':
+        # Retrieve the updated username from the form data
+        username = request.form.get('username')
+
+        # Update the user's profile in the database
+        cursor.execute("UPDATE users SET user_name = %s WHERE id = %s", (username, user_id,))
+        mydb.commit()
+
+        # Render the updated profile page with the new username
+        return redirect(url_for('my_blueprint.myprofile'))
+
+    else:
+        # Render the edit profile page with the current username
+        return render_template('edit_profile.html', userdata=userdata)
+
+
+
 
 
 

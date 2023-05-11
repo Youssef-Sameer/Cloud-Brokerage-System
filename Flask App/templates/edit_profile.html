@@ -1,0 +1,42 @@
+{% extends "base.html" %} 
+{% block title %}Edit Profile{% endblock %} 
+{% block content %}
+    <br>
+    <br>
+    <!-- ======= Edit Profile Section ======= -->
+    <section id="edit-profile" class="edit-profile">
+        <div class="container">
+            <div class="row justify-content-center" data-aos="fade-up">
+                <div class="col-lg-10">
+                    <div class="section-title">
+                        <h2>Edit Profile</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center" data-aos="fade-up">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <form method="post" action="{{ url_for('my_blueprint.editprofile') }}">
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input type="text" class="form-control" id="username" name="username" value="{{ userdata[1] }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="current_password">Current Password</label>
+                                    <input type="password" class="form-control" id="current_password" name="current_password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="new_password">New Password</label>
+                                    <input type="password" class="form-control" id="new_password" name="new_password">
+                                </div>
+                                <button type="submit" class="buttongreen">Save Changes</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Edit Profile Section -->
+{% endblock %}

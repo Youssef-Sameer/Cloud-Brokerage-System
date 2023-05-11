@@ -1,41 +1,41 @@
-{% extends "base.html" %} {% block title%}Login{% endblock %} {% block content
-  %}
-      <br>
-      <br>
-
-    <!-- ======= Contact Section ======= -->
-    
-
+{% extends "base.html" %} 
+{% block title%}My Profile{% endblock %} 
+{% block content %}
+    <br>
+    <br>
+    <!-- ======= Profile Section ======= -->
     <section id="profile" class="profile">
         <div class="container">
-          <div class="row justify-content-center" data-aos="fade-up">
-            <div class="col-lg-10">
-              <div class="section-title">
-                <h2>Profile</h2>
-                <div class="row mt-5 justify-content-center" data-aos="fade-up">
-                  <div class="col-lg-6">
-                    <div class="card">
-                        
-                      <div class="card-body">
-                        <img src="static/img/user.png" class="card-img-top" height="250" >
-                        <h5>
-                            Username: {{ userdata[1] }}
-                            <br>
-                            Email: {{ userdata[2] }}
-                        </h5>
-                        
-                        
-                      </div>
+            <div class="row justify-content-center" data-aos="fade-up">
+                <div class="col-lg-10">
+                    <div class="section-title">
+                        <h2>Profile</h2>
                     </div>
-                  </div>
                 </div>
-              </div>
             </div>
-          </div>
+            <div class="row justify-content-center" data-aos="fade-up">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="static/img/user.png" class="card-img-top" id="profile-pic" height="250">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center" data-aos="fade-up">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                          <center>
+                            <h5>Username: {{ userdata[1] }}</h5>
+                            <h5>Email: {{ userdata[2] }}</h5>
+                            <button type="button" class="buttongreen" onclick="window.location.href='{{ url_for('my_blueprint.editprofile') }}'">edit profile</button>
+                          </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </section>
-      
-    <!-- End Contact Section -->
-
-  </main><!-- End #main -->
-  {% endblock %}
+    </section>
+    <!-- End Profile Section -->
+{% endblock %}
