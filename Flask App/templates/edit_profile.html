@@ -30,6 +30,11 @@
                                     <label for="new_password">New Password</label>
                                     <input type="password" class="form-control" id="new_password" name="new_password">
                                 </div>
+                                {% if error %}
+                                <div class="alert alert-danger" role="alert">
+                                {{error}}
+                                </div>
+                                {% endif %}
                                 <button type="submit" class="buttongreen">Save Changes</button>
                             </form>
                         </div>

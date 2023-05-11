@@ -209,7 +209,7 @@ def editprofile():
         current_password=cursor.fetchone()
         if current_password[0]!=old_password:
             error = 'Current password is wrong'
-            return render_template('edit_profile.html',userdata=userdata)
+            return render_template('edit_profile.html',userdata=userdata,error=error)
         else:
             cursor.execute("UPDATE users SET user_name = %s ,user_password = %s WHERE id = %s", (username, new_password, user_id,))
             mydb.commit()
