@@ -14,10 +14,11 @@
                     <h2>Sign Up</h2>
                     <div class="row mt-5 justify-content-center" data-aos="fade-up">
                         <div class="col-lg-10">
-                            <form action="" method="POST" role="form" class="php-email-form">
+                            <form action="" method="POST" role="form" class="php-email-form" onsubmit="return validateconfirmPassword() && validateName() &&  validatePassword();">
                                 <div class="row">
                                     <div class="col-md-6 form-group">
-                                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"  onblur="validateName()"  required>
+                                        <div id="name-error" class="invalid-feedback"></div>
                                     </div>
                                     <div class="col-md-6 form-group mt-3 mt-md-0">
                                         <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
@@ -25,10 +26,12 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 form-group mt-3">
-                                        <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+                                        <input type="password" class="form-control" name="password" id="password" placeholder="Password" required >
+                                        <div id="password-error" class="invalid-feedback"></div>
                                     </div>
                                     <div class="col-md-6 form-group mt-3">
-                                        <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required>
+                                        <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required >
+                                        <div id="confirm-password-error"></div>
                                     </div>
                                 </div>
                                 <div class="my-3">
@@ -47,6 +50,72 @@
             </div>
         </div>
     </div>
+
+
+    <script>
+   function validatePassword() {
+  var passwordInput = document.getElementById("password");
+  var password = passwordInput.value;
+  var passwordError = document.getElementById("password-error");
+  
+
+  if (password.length < 8) {
+    passwordError.innerHTML = "Password must be at least 8 characters long";
+    passwordInput.classList.add("is-invalid");
+    return false;
+  } 
+ 
+
+  else {
+    passwordError.innerHTML = "";
+    passwordInput.classList.remove("is-invalid");
+    return true;
+  }
+}
+
+
+function validateconfirmPassword() {
+  var password = document.getElementById("password").value;
+  var confirmPassword = document.getElementById("confirm_password").value;
+  var error = document.getElementById("confirm-password-error");
+
+  if (password != confirmPassword) {
+    error.innerHTML = "Passwords do not match";
+    return false;
+  } else {
+    error.innerHTML = "";
+    return true;
+  }
+}
+function validateName() {
+  var nameInput = document.getElementById("name");
+  var name = nameInput.value;
+  var nameError = document.getElementById("name-error");
+
+  if (name.trim().length < 2) {
+    nameError.innerHTML = "Name must be at least 2 characters long";
+    nameInput.classList.add("is-invalid");
+    return false;
+  } else if (!/^[a-zA-Z\s]*$/.test(name)) {
+    nameError.innerHTML = "Name must contain only letters and spaces";
+    nameInput.classList.add("is-invalid");
+    return false;
+  } else {
+    nameError.innerHTML = "";
+    nameInput.classList.remove("is-invalid");
+    return true;
+  }
+}
+
+
+
+
+
+
+
+
+
+    </script>
 </section>
      
     
