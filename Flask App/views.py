@@ -144,9 +144,19 @@ def review():
     users = cursor.fetchall()
     return render_template('review.html',users=users)
 
-@my_blueprint.route('/addcsp')
+@my_blueprint.route('/addcsp', methods=['POST', 'GET'])
 def addcsp():
-    return render_template('add_csp.html')
+    if request.method == 'POST':
+        cloud_provider = request.form['cloud_provider']
+        Website = request.form['Website']
+        answers = request.form['answers'].split(',')
+        cursor.execute("INSERT INTO cloud_provider (csp_name,website,performance_score) VALUES (%s, %s, %s)", (cloud_provider, Website, answers))
+        mydb.commit()
+        # Return a response to indicate that the form was submitted successfully
+        return render_template('index.html')
+    else:
+        # Render the form template
+        return render_template('add_csp.html')
 
 @my_blueprint.route('/viewcsp')
 def viewcsp():
