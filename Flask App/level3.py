@@ -1,6 +1,6 @@
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, session
 import numpy as np
-from db import performance_matrix3, alternatives
+from db import performance_matrix3, alternatives, cursor, mydb
 # Define a dictionary that maps the string choices to their corresponding numerical values
 choice_map = {
     # change this
@@ -29,6 +29,8 @@ choice_map = {
 }
 
 def level3form():
+    ranks=[]
+    user_id = session['user_id']
     if request.method == 'POST':
         # Read the criteria weights and choices from the form
         
@@ -60,6 +62,10 @@ def level3form():
 
         # Pass the length of the alternatives list to the results page
         num_alternatives = len(alternatives)
+        rank_list = [alternatives[rankings[i]] for i in range(num_alternatives)]
+        ranks = ','.join(rank_list)
+        cursor.execute("INSERT INTO history (user_id,ranking) VALUES (%s,%s)", (user_id,ranks))
+        mydb.commit()
 
         # Return the rankings and length to the results page
         return render_template('results.html', alternatives=alternatives, rankings=rankings, num_alternatives=num_alternatives, relative_closeness=np.round(relative_closeness, 5))

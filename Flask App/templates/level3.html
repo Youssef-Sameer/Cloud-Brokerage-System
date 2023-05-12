@@ -17,15 +17,16 @@
 
              <p>  </i>Do you want data to be encrypted at rest?
               <i class="fa fa-question-circle" ></i></p> 
-              <select name="choices" id="source" required class="form-select">            
+              <select name="choices" id="source1" required class="form-select">            
                 <optgroup label="choices">
+                 <option value="">SELECT</option> 
                  <option value="Yes">Yes</option>
                  <option value="No">No</option> 
                  </optgroup>
              </select>              
               </div>       
                 <br>
-                <div id="additional-question1" style="display:block;">
+                <div id="additional-question1" style="display:none;">
 
 
                   
@@ -37,13 +38,14 @@
     
              <p >  </i>Which encryption algorithm do you prefer to use for generating cryptographic keys, and what key size do you want to use
          <i class="fa fa-question-circle" ></i></p> 
-        <select name="choices" id="source" required class="form-select">
+        <select name="choices" id="logging" required class="form-select">
                
                <optgroup label="choices">
+                <option value="">SELECT</option> 
                <option value="Triple-Des 56">Triple-Des 56</option>
                <option value="AES 128">AES 128</option>
                <option value="AES 256">AES 256</option>
-               <option value="No">No</option>
+               
                </optgroup>
            </select>
           </div>
@@ -51,8 +53,9 @@
                 <p>Would you like to have the option to generate cryptographic keys using NIST protocols in your cryptographic software or application
                  <i class="fa fa-question-circle" ></i></p> 
                     
-                 <select name="choices" id="source" required class="form-select">            
+                 <select name="choices" id="logging" required class="form-select">            
                   <optgroup label="choices">
+                    <option value="">SELECT</option> 
                    <option value="Yes">Yes</option>
                    <option value="No">No</option> 
                    </optgroup>
@@ -63,9 +66,10 @@
 
                 <p>How often is the keys rotated
                   <i class="fa fa-question-circle" ></i></p> 
-             <select name="choices" id="source" required class="form-select">
+             <select name="choices" id="logging" required class="form-select">
                      
                      <optgroup label="choices">
+                      <option value="">SELECT</option> 
                      <option value="Weekly">Weekly</option>
                      <option value="Monthly">Monthly</option>
                      <option value="Bi-Monthly">Bi-Monthly</option>
@@ -103,9 +107,10 @@
         <div class="sourceStation-and-destinationStaion">
           <p>When conducting a data inventory, would you prefer to take sole responsibility for creating and maintaining it, or would you like to share responsibility with your Cloud Service Provider (CSP) or leave it all on the Cloud Service Provider (CSP)
             <i class="fa fa-question-circle" ></i></p> 
-       <select name="choices" id="source" required class="form-select">
+       <select name="choices" id="logging" required class="form-select">
                
         <optgroup label="choices">
+          <option value="">SELECT</option> 
           <option value="solely responsible">solely responsible</option>
           <option value="shared responsible">share responsibility with the Cloud Service Provider (CSP)</option>
           <option value="CSP responsible">Cloud Service Provider (CSP) responsible</option>                  
@@ -115,9 +120,10 @@
            <br>
            <p>When classifying the sensitivity level of your data, what level of responsibility would you like to take on for this classification
             <i class="fa fa-question-circle" ></i></p> 
-       <select name="choices" id="source" required class="form-select">
+       <select name="choices" id="logging" required class="form-select">
                
                <optgroup label="choices">
+                <option value="">SELECT</option> 
                <option value="solely responsible">solely responsible</option>
                <option value="shared responsible">share responsibility with the Cloud Service Provider (CSP)</option>
                <option value="CSP responsible">Cloud Service Provider (CSP) responsible</option>                  
@@ -130,8 +136,9 @@
            <i class="fa fa-question-circle" ></i></p> 
           
                  
-           <select name="choices" id="source" required class="form-select">            
+           <select name="choices" id="source2" required class="form-select">            
             <optgroup label="choices">
+              <option value="">SELECT</option> 
              <option value="Yes">Yes</option>
              <option value="No">No</option> 
              </optgroup>
@@ -141,15 +148,16 @@
      
              <br>
 
-             <div id="additional-question" style="display:block;">
+             <div id="additional-question" style="display:none;">
    <div class="sourceStation-and-destinationStaion">
    
  
           <p >  </i>Which key size do you prefer to use for generating cryptographic keys
       <i class="fa fa-question-circle" ></i></p> 
-     <select name="choices" id="source" required class="form-select">
+     <select name="choices" id="logging" required class="form-select">
             
             <optgroup label="choices">
+              <option value="">SELECT</option> 
             <option value="2048">RSA 2048</option>
             <option value="3072">RSA 3072</option>
             <option value="4096">RSA 4096</option>
@@ -169,9 +177,10 @@
 
                <p>When it comes to protecting sensitive data, would you prefer to take full responsibility for ensuring its high level of protection, or would you like to share responsibility with your Cloud Service Provider (CSP) or leave it all on the Cloud Service Provider (CSP)
                 <i class="fa fa-question-circle" ></i></p> 
-           <select name="choices" id="source" required class="form-select">
+           <select name="choices" id="logging" required class="form-select">
                    
             <optgroup label="choices">
+              <option value="">SELECT</option> 
               <option value="solely responsible">solely responsible</option>
               <option value="shared responsible">share responsibility with the Cloud Service Provider (CSP)</option>
               <option value="CSP responsible">Cloud Service Provider (CSP) responsible</option>                  
@@ -211,8 +220,9 @@
                 
               <p>  </i>How often is the organization's infrastructure and virtualization policies and procedures gets updated
                <i class="fa fa-question-circle" ></i></p> 
-               <select name="choices" id="source" required class="form-select">            
+               <select name="choices" id="logging" required class="form-select">            
                <optgroup label="choices">
+                <option value="">SELECT</option> 
                 <option value="Monthly">Monthly</option>
                 <option value="Quarterly">Quarterly</option> 
                 <option value="Half-Annually">Half-Annually</option>   
@@ -227,8 +237,9 @@
              <i class="fa fa-question-circle" ></i></p> 
             
                    
-             <select name="choices" id="source" required class="form-select">            
+             <select name="choices" id="source3" required class="form-select">            
               <optgroup label="choices">
+                <option value="">SELECT</option> 
                <option value="Yes">Yes</option>
                <option value="No">No</option> 
                </optgroup>
@@ -238,7 +249,7 @@
        
                <br>
   
-               <div id="additional-question2" style="display:block;">
+               <div id="additional-question2" style="display:none;">
   
   
                  
@@ -250,8 +261,9 @@
         <i class="fa fa-question-circle" ></i></p> 
        
               
-        <select name="choices" id="source" required class="form-select">            
+        <select name="choices" id="logging" required class="form-select">            
           <optgroup label="choices">
+            <option value="No">SELECT</option> 
            <option value="Yes">Yes</option>
            <option value="No">No</option> 
            </optgroup>
@@ -261,8 +273,9 @@
                <br>
                <p>How often do you want your network configuration to be reviewed
                  <i class="fa fa-question-circle" ></i></p> 
-                 <select name="choices" id="source" required class="form-select">            
+                 <select name="choices" id="logging" required class="form-select">            
                   <optgroup label="choices">
+                    <option value="">SELECT</option> 
                    <option value="Monthly">Monthly</option>
                    <option value="Quarterly">Quarterly</option> 
                    <option value="Half-Annually">Half-Annually</option>   
@@ -281,8 +294,9 @@
     <i class="fa fa-question-circle" ></i></p> 
    
           
-    <select name="choices" id="source" required class="form-select">            
+    <select name="choices" id="logging" required class="form-select">            
       <optgroup label="choices">
+        <option value="">SELECT</option> 
        <option value="Yes">Yes</option>
        <option value="No">No</option> 
        </optgroup>
@@ -319,31 +333,44 @@
         // Show the requested section
         document.getElementById(sectionID).style.display = 'block';
       }      
+  const select = document.querySelector('#source1');
+  const select2 = document.querySelector('#source2');
+  const select3 = document.querySelector('#source3');
 
-      function showAdditionalQuestion() {
-    document.getElementById("additional-question1").style.display = "block";
-  }
 
-  function hideAdditionalQuestion() {
-    document.getElementById("additional-question1").style.display = "none";
-
+  // add event listener for changes in the select value
+  select.addEventListener('change', () => {
+      const additionalQuestion1 = document.querySelector('#additional-question1');
     
-  }function showAdditionalQuestion1() {
-    document.getElementById("additional-question").style.display = "block";
-  }
+      // if "Yes" is selected, show the additional question div, otherwise hide it
+      if (select.value === 'Yes') {
+          additionalQuestion1.style.display = 'block';
+      } else {
+          additionalQuestion1.style.display = 'none';
+      }
+  });
+  select2.addEventListener('change', () => {
+    const additionalQuestion = document.querySelector('#additional-question');
+  
+    // if "Yes" is selected, show the additional question div, otherwise hide it
+    if (select2.value === 'Yes') {
+        additionalQuestion.style.display = 'block';
+    } else {
+        additionalQuestion.style.display = 'none';
+    }
+});
+select3.addEventListener('change', () => {
+  const additionalQuestion2 = document.querySelector('#additional-question2');
 
-  function hideAdditionalQuestion1() {
-    document.getElementById("additional-question").style.display = "none";
+  // if "Yes" is selected, show the additional question div, otherwise hide it
+  if (select3.value === 'Yes') {
+      additionalQuestion2.style.display = 'none';
+  } else {
+      additionalQuestion2.style.display = 'block';
   }
-
-  function showAdditionalQuestion2() {
-    document.getElementById("additional-question2").style.display = "block";
-  }
-
-  function hideAdditionalQuestion2() {
-    document.getElementById("additional-question2").style.display = "none";
-  }
-
+});
+  
+</script>
 
     </script>      
 {% endblock %}

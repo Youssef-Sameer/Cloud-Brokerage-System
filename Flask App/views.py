@@ -217,6 +217,16 @@ def editprofile():
     else:
         # Render the edit profile page with the current username
         return render_template('edit_profile.html',userdata=userdata)
+    
+@my_blueprint.route('/history', methods=['POST', 'GET'])
+def history():
+    user_id = session['user_id']
+    cursor.execute("SELECT ranking FROM history WHERE user_id=%s", (user_id,))
+    choice=cursor.fetchall()
+    choices=choice[0][0]
+    choicess=choices.split(',')
+    
+    return render_template('history.html',ranking=choicess)
 
 
 
