@@ -6,23 +6,31 @@ def string_to_num(input_list):
     output_list = []
     for string in input_list:
         string = string.replace("\xa0", "")
-        if string.lower() in ["yes", "AES", "aes","Aes256","AES256","Yes","YES","4096","yes-monthly","yes- monthly","Yes-monthly","Yes- monthly","yes- monthly","Yes- monthly","RSA+sha","rsa+sha","RSA+SHA"]:
+        if string.lower() in ["Yes", "yes","RSA4096","Monthly"]:
             output_list.append(1)
-        elif string.lower() in ["No", "no", "Not mentioned","not mentioned","Not Mentioned","notmentioned"]:
+        elif string.lower() in ["No", "no","RSAnotmentioned"]:
             output_list.append(0)
-        elif string.lower() in ["2048","yes-annually","yes- annually","Yes-annually","Yes- annually","yes- annually","Yes- annually"]:
+        elif string.lower() in ["730"]:
+            output_list.append(0.15)
+        elif string.lower() in ["Annually",]:
             output_list.append(0.2)
-        elif string.lower() in ["CSP-responsibility", "csp-responsibility", "csp responsibility", "CSP responsibility","56"]:
+        elif string.lower() in ["RSA2048"]:
+            output_list.append(0.25)
+        elif string.lower() in ["CSC-responsibility","3DES56","365"]:
             output_list.append(0.3)
-        elif string.lower() in ["Sha256","SHA256","sha256","sha-256","SHA-256","SHA-256","sha 256","SHA 256","SHA 256","yes-bi-annually","yes- bi-annually","Yes-bi-annually","Yes- bi-annually","yes- bi-annually","Yes- bi-annually"]:
+        elif string.lower() in ["Bi-annually"]:
             output_list.append(0.4)
-        elif string.lower() in ["3DES", "3des", "3Des","RSA","rsa","Rsa"]:
+        elif string.lower() in ["90"]:
+            output_list.append(0.45)
+        elif string.lower() in ["RSA3072"]:
             output_list.append(0.5)
-        elif string.lower() in ["CSC-responsibility", "csc-responsibility", "csc responsibility", "CSC responsibility","128","3072","yes-half-annually","yes- half-annually","Yes-half-annually","Yes- half-annually","yes- half-annually","Yes- half-annually"]:
+        elif string.lower() in ["SharedCSPandCSCresponsibility","AES128","Half-annually","60"]:
             output_list.append(0.6)
-        elif string.lower() in ["sha384","SHA384","Sha384","sha-384","SHA-384","SHA-384","sha 384","SHA 384","SHA 384","yes-quarterly","yes- quarterly","Yes-quarterly","Yes- quarterly","yes- quarterly","Yes- Quarterly","yes- quarterly"]:
+        elif string.lower() in ["RSA+sha256","30"]:
+            output_list.append(0.75)
+        elif string.lower() in ["Quarterly"]:
             output_list.append(0.8)
-        elif string.lower() in ["Shared CSP and CSC responsibility", "shared csp and csc responsibility", "Shared csp and csc responsibility", "shared CSP and CSC responsibility","256"]:
+        elif string.lower() in ["CSP-responsibility","AES256","7"]:
             output_list.append(0.9)
         else:
             try:
@@ -30,22 +38,3 @@ def string_to_num(input_list):
             except ValueError:
                 output_list.append(string)
     return output_list
-
-def main():
-    root = tk.Tk()
-    root.withdraw()
-
-    file_path = filedialog.askopenfilename()
-    if not file_path:
-        return
-
-    with open(file_path, 'r', encoding='utf-8-sig') as csv_file, open('performance_matrix.txt', 'a') as txt_file, open('alternatives.txt', 'a') as alt_file:
-        for line in csv_file:
-            row = line.strip().split(',')
-            alt_file.write(row[0] + '\n')
-            output_list = string_to_num(row[1:])
-            txt_file.write(','.join(map(str, output_list)) + '\n')
-
-    print("Output written to performance_matrix.txt")
-if __name__ == "__main__":
-    main()
