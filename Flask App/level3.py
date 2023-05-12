@@ -35,7 +35,6 @@ def level3form():
         # Read the criteria weights and choices from the form
         
         choices = request.form.getlist('choices')
-        print(choices)
 
         # Convert the choices to their corresponding numerical values
         choices_values = [choice_map[choice] for choice in choices]
@@ -47,10 +46,13 @@ def level3form():
         weighted_matrix = normalized_matrix * choices_values
 
         # Calculate the ideal and negative ideal solutions
+        # The ideal solution is the maximum value for each column
+        # The negative ideal solution is the minimum value for each column
         ideal_solution = np.max(weighted_matrix, axis=0)
         negative_ideal_solution = np.min(weighted_matrix, axis=0)
 
         # Calculate the Euclidean distances of each alternative to the ideal and negative ideal solutions
+        # The Euclidean distance is the square root of the sum of the squared differences between the alternative and the ideal or negative ideal solution
         d_i = np.sqrt(np.sum((weighted_matrix - ideal_solution) ** 2, axis=1))
         d_j = np.sqrt(np.sum((weighted_matrix - negative_ideal_solution) ** 2, axis=1))
 
