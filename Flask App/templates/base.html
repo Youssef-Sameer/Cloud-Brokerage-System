@@ -49,6 +49,8 @@
     <div class="container d-flex align-items-center">
 
       <h1 class="logo me-auto"><a href="{{ url_for('my_blueprint.index') }}"><span>CA</span>B</a></h1>
+      <img src="static/img/rsa.png" width="64" height="32" >
+        <img src="static/img/miu.png" width="128" height="32" >
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="static/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -106,12 +108,7 @@
       </nav><!-- .navbar -->
       {% if session.user_type == "Admin" %}
       {% else %}
-      <div class="header-social-links d-flex">
-        <a href="#" class="twitter"><i class="bu bi-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bu bi-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bu bi-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="bu bi-linkedin"></i></i></a>
-      </div>
+      
       {% endif %}
     </div>
   </header><!-- End Header -->
