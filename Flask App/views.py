@@ -261,12 +261,13 @@ def editprofile():
 @my_blueprint.route('/history', methods=['POST', 'GET'])
 def history():
     user_id = session['user_id']
-    cursor.execute("SELECT ranking FROM history WHERE user_id=%s", (user_id,))
-    choice=cursor.fetchall()
-    choices=choice[0][0]
-    choicess=choices.split(',')
-    
-    return render_template('history.html',ranking=choicess)
+    cursor.execute("SELECT ranking FROM history WHERE user_id=%s ORDER BY id DESC LIMIT 1", (user_id,))
+    choice = cursor.fetchone()
+    if choice is not None:
+        choicess = choice[0].split(',')
+    else:
+        choicess = []
+    return render_template('history.html', ranking=choicess)
 @my_blueprint.route('/Newcspadmin', methods=['POST', 'GET'])
 def Newcspadmin():
         # Insert the data into the apply_csp table
