@@ -1,44 +1,46 @@
-{% extends "base.html" %}
-{% block title %}CSP Application{% endblock %}
-{% block content %}
-<br><br>
-<section id="application" class="application">
-  <div class="container">
+  {% extends "base.html" %}
+  {% block title %}CSP Application{% endblock %}
+  {% block content %}
+  <br><br>
+  <section id="application" class="application">
+    <div class="container">
 
-    <div class="row justify-content-center" data-aos="fade-up">
+      <div class="row justify-content-center" data-aos="fade-up">
 
-      <div class="col-lg-10">
+        <div class="col-lg-10">
 
-        <div class="section-title">
-          <h2>Apply for CSP Role</h2>
-        </div>
+          <div class="section-title">
+            <h2>Apply for CSP Role</h2>
+          </div>
 
-        <div class="row justify-content-center" data-aos="fade-up">
+          <div class="row justify-content-center" data-aos="fade-up">
 
-          <div class="col-lg-8">
+            <div class="col-lg-8">
 
-            <form action="{{ url_for('my_blueprint.csp_request') }}" method="post" role="form" class="php-email-form" id="application-form">
-              <div class="form-group">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-              </div>
-              <div class="form-group">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone Number" required>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" name="resume_link" id="resume_link" placeholder="Link to Your Resume" required>
-              </div>
-              <div class="form-group">
-                <textarea class="form-control" name="relevant_experience" rows="5" placeholder="If you have a CAIQ or any other certification link for your cloud" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="error-message"></div>
-                <div class="sent-message"></div>
-              </div>
-              <button type="submit" class="buttongreen">Submit</button>
-            </form>
+              <form action="{{ url_for('my_blueprint.csp_request') }}" method="post" role="form" class="php-email-form" id="application-form">
+                <div class="form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Company name" required>
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Company Email" required>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="phone" id="phone" placeholder="Company Phone-Number" required>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="resume_link" id="resume_link" placeholder="Link to Your Resume" required>
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control" name="relevant_experience" placeholder="Please provide us with the CAIQ link" required></textarea>
+                </div>
+                <div class="my-3">
+                  <div class="error-message"></div>
+                  <div class="sent-message"></div>
+                </div>
+                <button type="submit" class="buttongreen">Submit</button>
+              </form>
+
+            </div>
 
           </div>
 
@@ -47,36 +49,34 @@
       </div>
 
     </div>
+  </section>
 
-  </div>
-</section>
+  <script>
+    const form = document.getElementById("application-form");
+    const sentMessage = form.querySelector(".sent-message");
+    const errorMessage = form.querySelector(".error-message");
 
-<script>
-  const form = document.getElementById("application-form");
-  const sentMessage = form.querySelector(".sent-message");
-  const errorMessage = form.querySelector(".error-message");
-
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    try {
-      const response = await fetch(event.target.action, {
-        method: event.target.method,
-        body: new FormData(event.target),
-      });
-      if (!response.ok) {
-        throw new Error(response.statusText);
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      try {
+        const response = await fetch(event.target.action, {
+          method: event.target.method,
+          body: new FormData(event.target),
+        });
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        // Hide the error message and show the success message
+        sentMessage.style.display = "block";
+        errorMessage.style.display = "none";
+        form.reset();
+      } catch (error) {
+        console.error(error);
+        // Hide the success message and show the error message
+        errorMessage.style.display = "block";
+        sentMessage.style.display = "none";
       }
-      // Hide the error message and show the success message
-      sentMessage.style.display = "block";
-      errorMessage.style.display = "none";
-      form.reset();
-    } catch (error) {
-      console.error(error);
-      // Hide the success message and show the error message
-      errorMessage.style.display = "block";
-      sentMessage.style.display = "none";
-    }
-  });
-</script>
+    });
+  </script>
 
-{% endblock %}
+  {% endblock %}
