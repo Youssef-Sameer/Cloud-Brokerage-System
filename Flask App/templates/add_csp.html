@@ -1,29 +1,41 @@
 {% extends "adminpanelbase.html" %}
-{% block title%}Add CSP{% endblock %}
+{% block title %}
+  Add CSP
+{% endblock %}
+
 {% block content %}
-    <!--Main Navigation-->
-    <header>
-        <br>
-        <br>
-        <br>
-        <!--Mask-->
-        <div class="header">
-            <h2><font size=6>Add CSP</font></h2>
+<br>
+<br>
+<center>
+  <main class="add-csp">
+    <section class="hero">
+      <div class="hero__wrapper">
+        <h1 class="hero__title">Add CSP</h1>
+      </div>
+    </section>
+    <section class="form">
+      <form method="post" action="" class="php-email-form">
+        <!-- Display validation errors here -->
+        <div class="form__group">
+          <label for="cloud_provider">Cloud Provider:</label>
+          <input type="text" name="cloud_provider" id="cloud_provider" required>
         </div>
-        <form method="post" enctype="multipart/form-data" action="">
-            <!--display validation errors here-->
-            <div class="input-group">
-                <label><font color="white">Upload CSV file:</font></label>
-                <input type="file" name="csv_file" id="csv_file" required>
-            </div>
-            <div class="input-group">
-                <button type="submit" name="upload_csv" class="btn">Upload CSV</button>
-            </div>
-            <div class="input-group">
-                <button type="submit" name="submit_csv" class="btn">Submit</button>
-            </div>
-            {{ message }}
-        </form>
-        <!--/.Mask-->
-    </header>
+        <div class="form__group">
+            <label for="Website">Website:</label>
+            <input type="text" name="Website" id="Website" required>
+          </div>
+
+        <div class="form__group">
+          <label for="answers">Answers:</label>
+          <input type="text" name="answers" id="answers" required>
+        </div>
+
+        <div class="form__group">
+          <button type="submit" class="buttongreen">Submit</button>
+        </div>
+      </form>
+    </section>
+    </center>
+  </main>
+
 {% endblock %}
