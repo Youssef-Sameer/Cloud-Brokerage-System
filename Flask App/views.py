@@ -152,6 +152,7 @@ def addcsp():
         website = request.form['Website']
         answers = request.form['answers']
         cursor.execute("INSERT INTO Cloud_provider (csp_name, website, performance_score) VALUES (%s, %s, %s)", (cloud_provider_name, website, answers))
+        mydb.commit()
         return render_template('admin_panel_view_csp.html')
     else:
         return render_template('add_csp.html')
