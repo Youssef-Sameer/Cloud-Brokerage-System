@@ -17,7 +17,7 @@
 
           <div class="col-lg-8">
 
-            <form action="" method="post" role="form" class="php-email-form">
+            <form action="" method="post" role="form" class="php-email-form" id="application-form">
               <div class="form-group">
                 <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
               </div>
@@ -40,11 +40,10 @@
                 <textarea class="form-control" name="availability" rows="3" placeholder="What is your availability (days/hours)?" required></textarea>
               </div>
               <div class="my-3">
-                <div class="loading">Loading</div>
                 <div class="error-message"></div>
                 <div class="sent-message">Your application has been submitted. Thank you!</div>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <button type="submit" class="buttongreen">Submit</button>
             </form>
 
           </div>
@@ -57,5 +56,33 @@
 
   </div>
 </section>
+
+<script>
+  const form = document.getElementById("application-form");
+  const sentMessage = form.querySelector(".sent-message");
+  const errorMessage = form.querySelector(".error-message");
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    try {
+      const response = await fetch(event.target.action, {
+        method: event.target.method,
+        body: new FormData(event.target),
+      });
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+      // Hide the error message and show the success message
+      sentMessage.style.display = "block";
+      errorMessage.style.display = "none";
+      form.reset();
+    } catch (error) {
+      console.error(error);
+      // Hide the success message and show the error message
+      errorMessage.style.display = "block";
+      sentMessage.style.display = "none";
+    }
+  });
+</script>
 
 {% endblock %}
