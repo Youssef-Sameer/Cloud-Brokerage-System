@@ -199,6 +199,13 @@ def delete_user(user_id):
     cursor.execute("DELETE FROM users WHERE id=%s", (user_id,))
     mydb.commit()
     return redirect(url_for('my_blueprint.adminpanel'))
+
+@my_blueprint.route('/delete_apply_csp/<int:apply_csp_id>', methods=['GET', 'POST'])
+def delete_apply_csp(apply_csp_id):
+    cursor.execute("DELETE FROM apply_csp WHERE id=%s", (apply_csp_id,))
+    mydb.commit()
+    return redirect(url_for('my_blueprint.Newcspadmin'))
+
 @my_blueprint.route('/delete_contact/<int:contact_id>', methods=['GET', 'POST'])
 def delete_contact(contact_id):
     cursor.execute("DELETE FROM contact WHERE id=%s", (contact_id,))

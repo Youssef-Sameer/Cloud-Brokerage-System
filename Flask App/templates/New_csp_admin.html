@@ -46,7 +46,7 @@ APPLICATION NEW CSP
                                 <td><a href="{{ user[4] }}" target="_blank">{{ user[4] }}</a></td>
                                 <td><a href="{{ user[5] }}" target="_blank">{{ user[5] }}</a></td>
                                 <td>
-                                    <a href="{{ url_for('my_blueprint.delete_contact', contact_id=user[0]) }}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                    <a href="{{ url_for('my_blueprint.delete_apply_csp', apply_csp_id=user[0]) }}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                                 </td>
                             </tr>
                         {% endfor %}
