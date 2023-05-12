@@ -150,9 +150,15 @@ def addcsp():
         # Get form data
         cloud_provider_name = request.form['cloud_provider']
         website = request.form['Website']
-        answers = request.form['answers']
-        cursor.execute("INSERT INTO Cloud_provider (csp_name, website, performance_score) VALUES (%s, %s, %s)", (cloud_provider_name, website, answers))
+        Level1Score = request.form['Level1Score']
+        Level2Score = request.form['Level2Score']
+        Level3Score = request.form['Level3Score']
+        
+        cursor.execute("INSERT INTO level1 (csp_name, website, performance_score) VALUES (%s, %s, %s)", (cloud_provider_name, website, Level1Score))
+        cursor.execute("INSERT INTO level2 (csp_name, website, performance_score) VALUES (%s, %s, %s)", (cloud_provider_name, website, Level2Score))
+        cursor.execute("INSERT INTO cloud_provider (csp_name, website, performance_score) VALUES (%s, %s, %s)", (cloud_provider_name, website, Level3Score))
         mydb.commit()
+        
         return render_template('admin_panel_view_csp.html')
     else:
         return render_template('add_csp.html')
