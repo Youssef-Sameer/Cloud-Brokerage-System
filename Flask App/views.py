@@ -162,7 +162,25 @@ def result():
     
 @my_blueprint.route('/csp_request', methods=['POST', 'GET'])
 def csp_request():
-    return render_template('csp_request.html')
+    if request.method == 'POST':
+        # Handle the form submission
+        name = request.form['name']
+        email = request.form['email']
+        phone = request.form['phone']
+        resume_link = request.form['resume_link']
+        relevant_experience = request.form['relevant_experience']
+
+        # Insert the data into the apply_csp table
+        cursor.execute("INSERT INTO apply_csp (name, email, phonenumber, link, CAIQ_link) VALUES (%s, %s, %s, %s, %s)", (name, email, phone, resume_link, relevant_experience))
+        mydb.commit()
+
+        # Return a response to indicate that the form was submitted successfully
+        return 'Form submitted successfully!'
+    else:
+        # Render the form template
+        return render_template('csp_request.html')
+
+
 
 @my_blueprint.route('/add_admin/<int:user_id>', methods=['POST'])
 def add_admin(user_id):

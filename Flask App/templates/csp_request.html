@@ -17,7 +17,7 @@
 
           <div class="col-lg-8">
 
-            <form action="" method="post" role="form" class="php-email-form" id="application-form">
+            <form action="{{ url_for('my_blueprint.csp_request') }}" method="post" role="form" class="php-email-form" id="application-form">
               <div class="form-group">
                 <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
               </div>
@@ -31,17 +31,11 @@
                 <input type="text" class="form-control" name="resume_link" id="resume_link" placeholder="Link to Your Resume" required>
               </div>
               <div class="form-group">
-                <textarea class="form-control" name="why_interested" rows="5" placeholder="Why are you interested in becoming a CSP?" required></textarea>
-              </div>
-              <div class="form-group">
-                <textarea class="form-control" name="relevant_experience" rows="5" placeholder="What relevant experience do you have that would make you a good fit for this role?" required></textarea>
-              </div>
-              <div class="form-group">
-                <textarea class="form-control" name="availability" rows="3" placeholder="What is your availability (days/hours)?" required></textarea>
+                <textarea class="form-control" name="relevant_experience" rows="5" placeholder="If you have a CAIQ or any other certification link for your cloud" required></textarea>
               </div>
               <div class="my-3">
                 <div class="error-message"></div>
-                <div class="sent-message">Your application has been submitted. Thank you!</div>
+                <div class="sent-message"></div>
               </div>
               <button type="submit" class="buttongreen">Submit</button>
             </form>
