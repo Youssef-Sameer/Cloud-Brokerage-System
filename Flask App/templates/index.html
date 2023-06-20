@@ -2,6 +2,7 @@
 %}
   <!-- ======= Hero Section ======= -->
   <section id="hero">
+    
     <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
 
       <div class="carousel-inner" role="listbox">
@@ -50,37 +51,13 @@
       </a>
 
       <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
-
+      <button type="submit" class="buttongreen">Save Changes</button>
     </div>
   </section><!-- End Hero -->
 
   <main id="main">
 
-    <!-- ======= About Us Section ======= -->
-    <section id="about-us" class="about-us">
-      <div class="container" data-aos="fade-up">
-
-        <div class="row content">
-          <div class="col-lg-6" data-aos="fade-right">
-            <h2>Cloud security Assessment and Brokerage</h2>
-            <h3>"Securely Empowering Your Cloud Journey"</h3>
-          </div>
-          <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left">
-           
-            <ul>
-              <li><i class="ri-check-double-line"></i> Welcome to Cloud Assessment and Brokerage! We are a team of cloud experts who are dedicated to helping businesses choose the best cloud service provider for their needs. Our company was founded with the goal of making it easy for businesses to navigate the complex world of cloud computing and choose the right provider based on their unique requirements.</li>
-              <li><i class="ri-check-double-line"></i> At Cloud Assessment and Brokerage, we believe that security is one of the most important factors to consider when choosing a cloud service provider. We understand that businesses need to have complete confidence in the security of their data and applications, and that's why we take a comprehensive approach to security assessment. Our team of experts will analyze your business's security requirements and help you find a cloud service provider that meets your needs. </li>
-              <li><i class="ri-check-double-line"></i> We also believe in providing a personalized experience for our clients. We understand that every business is unique, and we take the time to understand your specific needs and requirements. Whether you're looking for a public, private, or hybrid cloud solution, we will work with you to find the best fit for your business.              Thank you for considering Cloud Assessment and Brokerage. We look forward to helping you find the perfect cloud service provider for your business
-              </li>
-            </ul>
-           
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End About Us Section -->
-
-    <!-- ======= Services Section ======= -->
+    <!-- ======= services Section ======= -->
     {% if session.user_id %}
     <section id="services" class="services section-bg">
       <div class="container" data-aos="fade-up">

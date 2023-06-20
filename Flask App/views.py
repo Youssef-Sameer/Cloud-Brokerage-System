@@ -23,6 +23,9 @@ my_blueprint = Blueprint('my_blueprint', __name__)
 def index():
     return render_template('index.html')
 
+
+
+
 @my_blueprint.route('/about', methods=['POST', 'GET'])
 def about():
     return render_template('about.html')
