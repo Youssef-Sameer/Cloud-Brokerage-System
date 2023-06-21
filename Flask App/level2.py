@@ -33,8 +33,8 @@ def level2form():
         negative_ideal_solution = np.min(weighted_matrix, axis=0)
 
         # Calculate the Euclidean distances of each alternative to the ideal and negative ideal solutions
-        d_i = np.sqrt(np.sum((weighted_matrix - ideal_solution) ** 2, axis=1))
-        d_j = np.sqrt(np.sum((weighted_matrix - negative_ideal_solution) ** 2, axis=1))
+        d_i = np.sqrt(np.sum((weighted_matrix - ideal_solution) ** 4, axis=1))
+        d_j = np.sqrt(np.sum((weighted_matrix - negative_ideal_solution) ** 4, axis=1))
 
         # Calculate the relative closeness of each alternative to the ideal solution
         relative_closeness = d_j / (d_i + d_j)

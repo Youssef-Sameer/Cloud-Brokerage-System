@@ -24,8 +24,6 @@ choice_map = {
     "shared responsible":0.06,
     "CSP responsible":0.09,
     
-    
-    
 }
 
 def level3form():
@@ -35,7 +33,7 @@ def level3form():
         # Read the criteria weights and choices from the form
         
         choices = request.form.getlist('choices')
-
+        print(choices)
         # Convert the choices to their corresponding numerical values
         choices_values = [choice_map[choice] for choice in choices]
 

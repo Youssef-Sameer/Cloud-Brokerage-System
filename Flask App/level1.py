@@ -4,9 +4,19 @@ from db import performance_matrix1, alternatives, cursor, mydb
 
 # Define a dictionary that maps the string choices to their corresponding numerical values
 choice_map = {
-    "Strong": 0.33,
-    "Medium": 0.23,
-    "Weak": 0.13
+    "Strong1": 1,
+    "Strong2": 0.90,
+    "Strong3": 0.80,
+    "Strong4": 0.70,
+    "Medium1": 0.65,
+    "Medium2": 0.60,
+    "Medium3": 0.55,
+    "Medium4": 0.50,
+    "Weak1": 0.4,
+    "Weak2": 0.3,
+    "Weak3": 0.2, 
+    "Weak4": 0.1,
+    
 }
 
 def level1form():
@@ -31,8 +41,8 @@ def level1form():
         negative_ideal_solution = np.min(weighted_matrix, axis=0)
 
         # Calculate the Euclidean distances of each alternative to the ideal and negative ideal solutions
-        d_i = np.sqrt(np.sum((weighted_matrix - ideal_solution) ** 2, axis=1))
-        d_j = np.sqrt(np.sum((weighted_matrix - negative_ideal_solution) ** 2, axis=1))
+        d_i = np.sqrt(np.sum((weighted_matrix - ideal_solution) ** 4, axis=1))
+        d_j = np.sqrt(np.sum((weighted_matrix - negative_ideal_solution) ** 4, axis=1))
 
         # Calculate the relative closeness of each alternative to the ideal solution
         relative_closeness = d_j / (d_i + d_j)
