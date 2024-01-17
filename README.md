@@ -16,6 +16,11 @@ CAB (Cloud Brokerage System) is a web-based platform designed to assist users in
 - Python 3.x
 - Flask
 
+## Database Schema
+
+For details about the database schema, please refer to [Database Schema](database.md).
+
+
 ## Installation
 
 1. Clone the repository:
